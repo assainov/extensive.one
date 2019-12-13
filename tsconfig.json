@@ -9,7 +9,8 @@
       "target": "esnext",
       "jsx": "react",
       "allowJs": true,
-      "lib": ["es2015", "es2017"]
+      "lib": ["es2015", "es2017"],
+      "noImplicitReturns": true
   },
   "exclude": ["./node_modules", "./public", "./.cache"],
   "include": [
