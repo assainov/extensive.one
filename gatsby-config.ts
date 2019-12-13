@@ -1,12 +1,12 @@
+import { config } from './content/website/config';
+
+const { siteTitle, siteDescription, siteUrl, siteColors, siteIcons } = config;
+
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
-    author: `Kyle Mathews`,
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
-    social: {
-      twitter: `kylemathews`,
-    },
+    title: siteTitle,
+    description: siteDescription,
+    siteUrl,
   },
   plugins: [
     {
@@ -57,13 +57,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
-        start_url: `/`,
-        background_color: `#ffffff`,
-        theme_color: `#663399`,
+        name: siteTitle,
+        short_name: siteTitle, //eslint-disable-line
+        start_url: `/`, //eslint-disable-line
+        background_color: siteColors.background, //eslint-disable-line
+        theme_color: siteColors.theme, //eslint-disable-line
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        icon: siteIcons.favicon,
       },
     },
     `gatsby-plugin-offline`,
