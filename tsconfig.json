@@ -4,10 +4,14 @@
       "sourceMap": true,
       "noImplicitAny": true,
       "module": "commonjs",
+      "strict": true,
+      "noEmit": true,
       "target": "esnext",
       "jsx": "react",
-      "lib": ["dom", "es2015", "es2017"]
+      "allowJs": true,
+      "lib": ["es2015", "es2017"]
   },
+  "exclude": ["./node_modules", "./public", "./.cache"],
   "include": [
       "./src/**/*"
   ]
