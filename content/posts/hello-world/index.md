@@ -1,10 +1,28 @@
 ---
 title: Hello World
 date: "2015-05-01T22:12:03.284Z"
-description: "Hello World"
+abstract: Simple post about Hello world!
+categories: ["Lol"]
 ---
 
 This is my first post on my new fake blog! How exciting!
+
+```jsx
+{articles.map(post => (
+    <article key={post.link}>
+        <hr />
+        <PostTitle {...post} />
+        <div className={styles.abstract}>
+            <p>{truncate.apply(post.abstract, [maxAbstractChars, true])}</p>
+        </div>
+        <div className={styles.panel}>
+            <Button type='link' to={post.link} color='--color-primary' opaque>Read on</Button>
+            {isReadingList && <Button type='button' onClick={() => removeFromReadingList(post.title)} color='--color-primary' opaque={false}>Remove from list</Button>}
+            {!isReadingList && <Button type='button' onClick={() => addToReadingList(post)} color='--color-primary' opaque={false}>Read later</Button>}
+        </div>
+    </article>
+))}
+```
 
 I'm sure I'll write a lot more interesting things in the future.
 
