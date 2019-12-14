@@ -2,6 +2,8 @@ import { GatsbyNode } from 'gatsby';
 import * as path from 'path';
 import kebabCase from 'lodash/kebabCase';
 
+// import { PagesCategoriesQuery } from '../typings/graphql-types';
+
 interface ICategory {
   fieldValue: string;
 }
@@ -34,7 +36,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
 
   const queryResult = await graphql<IQueryResult>(
     `
-      {
+      query PagesCategoriesQuery {
         allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }, limit: 1000) {
           edges {
             node {

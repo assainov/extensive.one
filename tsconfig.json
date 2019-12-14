@@ -11,7 +11,7 @@
       "allowJs": true,
       "lib": ["es2015", "es2017"],
       "noImplicitReturns": true,
-      "esModuleInterop": true
+      "esModuleInterop": true,
   },
   "exclude": ["./node_modules", "./public", "./.cache"],
   "include": [

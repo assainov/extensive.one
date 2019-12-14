@@ -1,4 +1,14 @@
-import { config } from './content/website/config';
+'use strict';
+
+/**
+ * Run and compile TypeScript at runtime
+ * Source-map-support mimics node's stack trace making debugging easier
+ * requiring and registering ts-node compiles TypeScript into JS at runtime
+ */
+require('source-map-support').install();
+require('ts-node').register();
+
+const { config } = require('./content/website/config'); // eslint-disable-line
 
 const { siteTitle, siteDescription, siteUrl, siteColors, siteIcons } = config;
 
@@ -85,5 +95,12 @@ module.exports = {
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-typescript`,
+    {
+      // automatically generate typings from graphql schema
+      resolve: 'gatsby-plugin-generate-typings',
+      options: {
+        dest: `${__dirname}/src/typings/graphql-types.d.ts`,
+      },
+    },
   ],
 };

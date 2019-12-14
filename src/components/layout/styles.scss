@@ -1,0 +1,27 @@
+@import "../../styles/variables";
+@import '../../styles/mixins';
+
+:root {
+    --header-height: 10rem;
+    --global-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.2);
+
+    --color-primary: #{$color-primary};
+    --color-secondary: #{$color-secondary};
+    --color-tertiary: #{$color-tertiary};
+
+    --color-text-primary: #{$color-text-primary};
+    --color-text-secondary: #{$color-text-secondary};
+    --color-text-tertiary: #{$color-text-tertiary};
+    --color-less: #{$color-less};
+    --color-less-lighter: #{$color-less-lighter};
+    --color-less-transparent: #{$color-less-transparent};
+    --color-link: #{$color-link};
+    --color-facebook: #{$color-facebook};
+    --color-twitter: #{$color-twitter};
+    --color-reddit: #{$color-reddit};
+    --color-linkedin: #{$color-linkedin};
+
+    @include respond (phone) {
+        --header-height: 8rem;
+    }
+}
