@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * Run and compile TypeScript at runtime
+ * Run TypeScript code without compiling it
  * Source-map-support mimics node's stack trace making debugging easier
- * requiring and registering ts-node compiles TypeScript into JS at runtime
+ * ts-node register eliminates the need to require ts-node in every file
  */
 require('source-map-support').install();
 require('ts-node').register();
@@ -95,12 +95,5 @@ module.exports = {
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-typescript`,
-    {
-      // automatically generate typings from graphql schema
-      resolve: 'gatsby-plugin-generate-typings',
-      options: {
-        dest: `${__dirname}/src/typings/graphql-types.d.ts`,
-      },
-    },
   ],
 };

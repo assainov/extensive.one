@@ -1,3 +1,6 @@
-exports.createPages = require('./src/gatsby-api/create-pages');
+import { createPages } from './src/gatsby-hooks/create-pages';
+import { addSlugToPage } from './src/gatsby-hooks/add-slug-to-page';
 
-exports.onCreateNode = require('./src/gatsby-api/create-pages');
+exports.createPages = createPages;
+
+exports.onCreateNode = addSlugToPage;
