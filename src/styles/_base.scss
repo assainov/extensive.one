@@ -1,0 +1,18 @@
+html {
+    ::selection {
+        background-color: $color-primary;
+        color: $color-text-secondary;
+    }
+}
+
+body {
+    box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}

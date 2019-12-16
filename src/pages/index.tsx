@@ -10,23 +10,24 @@ import Hero from '../components/hero';
 import Canvas from '../components/canvas';
 import AllPosts from '../components/all-posts';
 
-type ICategory = {
-  category: string;
-};
+export interface IFrontMatter {
+  date: string;
+  title: string;
+  abstract: string;
+  categories: string[];
+}
 
-type INode = {
-  node: {
-    fields: {
-      slug: string;
-    };
-    frontmatter: {
-      date: string;
-      title: string;
-      abstract: string;
-      categories: ICategory[];
-    };
+export interface IArticle extends IFrontMatter {
+  link: string;
+  author: string;
+}
+
+export interface INode {
+  fields: {
+    slug: string;
   };
-};
+  frontmatter: IFrontMatter;
+}
 
 interface IQueryProps {
   data: {
@@ -37,13 +38,13 @@ interface IQueryProps {
       };
     };
     allMarkdownRemark: {
-      edges: INode[];
+      edges: { node: INode }[];
     };
   };
 }
 
 const HomePage: React.FC<IQueryProps & IPageProps> = ({ data, location }) => {
-  const articles = data.allMarkdownRemark.edges.map(({ node }) => ({
+  const articles: IArticle[] = data.allMarkdownRemark.edges.map(({ node }) => ({
     title: node.frontmatter.title,
     date: node.frontmatter.date,
     abstract: node.frontmatter.abstract,

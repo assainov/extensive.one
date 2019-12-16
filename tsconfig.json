@@ -9,7 +9,7 @@
       "target": "esnext",
       "jsx": "react",
       "allowJs": true,
-      "lib": ["es2015", "es2017"],
+      "lib": ["dom", "es2015", "es2017"],
       "noImplicitReturns": true,
       "esModuleInterop": true,
   },

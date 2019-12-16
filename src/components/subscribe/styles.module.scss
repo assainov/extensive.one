@@ -1,0 +1,91 @@
+@import '../../styles/mixins';
+
+.form {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+    min-height: 26.5rem;
+    padding: 5rem 10rem;
+    background-color: var(--color-secondary);
+    border: 1px solid var(--color-primary);
+    margin: 5rem 0;
+    box-shadow: var(--global-shadow);
+
+    h2 {
+        text-transform: uppercase;
+        color: var(--color-text-primary);
+        margin-bottom: 1.5rem;
+    }
+
+    @include respond(phone) {
+        margin-left: -10%;
+        margin-right: -10%;
+        padding: 4rem 10%;
+        flex-wrap: nowrap;
+        flex-direction: column;
+        box-shadow: none;
+
+        h2 {
+            font-size: 2rem;
+            line-height: 2.5rem;
+        }
+    }
+}
+
+
+.input {
+    flex-grow: 1;
+    height: 4.2rem;
+    padding: 1rem;
+    font-size: 1.6rem;
+    margin-right: 1rem;
+    background-color: var(--color-secondary);
+    border: 1px solid var(--color-primary);
+    color: var(--color-less-lighter);
+
+    @include respond(phone) {
+        margin-right: 0;
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+}
+
+.success {
+    height: 4.2rem;
+    color: var(--color-text-primary) !important;
+    text-align: left;
+    font-family: Domine, Arial;
+    font-weight: 400;
+    font-size: 1.6rem;
+}
+
+.error {
+    color: var(--color-text-primary) !important;
+    font-size: 1.6rem;
+    display: block;
+    height: 1.8rem;
+    width: 100%;
+    font-family: Domine, Arial;
+    font-weight: 400;
+    margin-top: 1rem;
+}
+
+::-webkit-input-placeholder { /* Edge */
+    color: var(--color-less-lighter);
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: var(--color-less-lighter);
+}
+
+::placeholder {
+    color: var(--color-less-lighter);
+}
+
+.button {
+    @include respond(phone) {
+        width: 100%;
+    }
+}

@@ -1,0 +1,106 @@
+@import '../styles/mixins';
+
+.blog-post {
+    footer {
+        margin-top: 5rem;
+    }
+
+    * {
+        font-family: 'Domine', Arial;
+        font-weight: 400;
+    }
+
+    & :global(.gatsby-highlight), & :global(.gatsby-highlight) * {
+        font-family: "Roboto Mono", monospace;
+        font-size: 1.4rem;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: "Josefin Sans", sans-serif;
+        text-transform: uppercase;
+        font-weight: 600;
+        margin-bottom: 3.4rem;
+    }
+
+    h5, h6 {
+        font-size: 1.6rem;
+    }
+
+    a {
+        text-decoration: underline;
+        &:hover {
+            color: var(--color-primary);
+        }
+    }
+    
+    p {
+        font-weight: 400;
+        margin-bottom: 3.4rem;
+    }
+
+    ul li p {
+        margin-bottom: 0;
+    }
+
+    ul li li {
+        margin-left: 2rem;
+    }
+
+    blockquote, q {
+        position: relative;
+        &:before {
+            position: absolute;
+            left: 7rem;
+            top: 0;
+            content: "\201D";
+            font-family: Arial;
+            color: var(--color-secondary);
+            background-color: var(--color-primary);
+            font-size: 6rem;
+            font-weight: 400;
+            width: 5rem;
+            height: 5rem;
+            display: block;
+            line-height: 8rem;
+            text-align: center;
+            transform: scale(-1) translateY(50%);
+        }
+
+        font-size: 2rem;
+        margin: 5rem 0;
+        padding: 6rem 7rem;
+        border: 1px solid var(--color-primary);
+
+        @include respond(phone) {
+            padding: 4rem 3rem;
+            font-size: 1.6rem;
+        }
+    }
+}
+
+.read-next {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    list-style-type: none;
+
+    li {
+        flex: 1 1 100%;
+        &:nth-child(1) {
+            text-align: left;
+        }
+
+        &:nth-child(2) {
+            text-align: right;
+        }
+
+        a {
+            font-family: Domine, Arial;
+            font-weight: 400;
+
+            &:hover {
+                color: var(--color-primary);
+            }
+        }
+    }
+}

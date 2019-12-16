@@ -1,11 +1,20 @@
 import * as React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import Image from 'gatsby-image';
+import Image, { FixedObject } from 'gatsby-image';
 
+import { config } from '../../../content/website/config';
 import styles from './styles.module.scss';
 
+interface IQuery {
+  avatar: {
+    childImageSharp: {
+      fixed: FixedObject | FixedObject[];
+    };
+  };
+}
+
 const Bio: React.FC = () => {
-  const data = useStaticQuery(graphql`
+  const data = useStaticQuery<IQuery>(graphql`
     query BioQuery {
       avatar: file(absolutePath: { regex: "/ilyas-assainov.jpg/" }) {
         childImageSharp {
@@ -14,18 +23,10 @@ const Bio: React.FC = () => {
           }
         }
       }
-      site {
-        siteMetadata {
-          author
-          social {
-            twitter
-          }
-        }
-      }
     }
   `);
 
-  const { author } = data.site.siteMetadata;
+  const { author, authorDescription } = config;
   return (
     <div className={styles.bio}>
       <div className={styles.flex}>
@@ -42,11 +43,7 @@ const Bio: React.FC = () => {
         <div>
           <h2 className={styles.name}>{author}</h2>
           <div className={styles.text}>
-            <p>
-              I am a full stack developer specializing in designing and implementing scalable JavaScript projects. In
-              this blog, I share my insights and solutions on problems that I think might be helpful to other
-              developers. If you find my articles valuable, subscribe or add me in social media to always be updated.
-            </p>
+            <p>{authorDescription}</p>
           </div>
         </div>
       </div>

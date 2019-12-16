@@ -1,0 +1,31 @@
+@import '../../styles/mixins';
+
+.footer {
+    position: relative;
+    z-index: -1;
+    height: var(--header-height);
+    background-color: var(--color-primary);
+    
+    & > div {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        p {
+            line-height: var(--header-height);
+            font-weight: 400;
+            text-align: center;
+            font-family: 'Domine', sans-serif;
+            color: var(--color-text-secondary);
+
+            @include respond(phone) {
+                line-height: 2;
+            }
+        }
+    }
+
+    @include respond(phone) {
+        height: 10rem;
+    }
+}

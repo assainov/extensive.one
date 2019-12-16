@@ -1,0 +1,23 @@
+@import '../../styles/mixins';
+
+.button {
+    display: inline-block;
+    text-transform: uppercase;
+    font-family: 'Josefin Sans';
+    font-size: 1.1rem;
+    font-weight: 600;
+    min-width: 16rem;
+    padding: 0 2rem;
+    line-height: 3.8rem;
+    text-align: center;
+    box-shadow: 0 5px 10px 0 rgba(#000, 0.2);
+    cursor: pointer;
+
+    &:hover {
+        box-shadow: 0 10px 20px 0 rgba(#000, 0.1);
+    }
+
+    @include respond (phone) {
+        min-width: 20rem;
+    }
+}

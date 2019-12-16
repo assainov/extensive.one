@@ -1,0 +1,45 @@
+@import '../../styles/mixins';
+
+.post-title {
+    position: relative;
+    .title {
+        display: inline-block;
+        margin-top: 8rem;
+        font-size: 4.8rem;
+        font-weight: 600;
+        color: var(--color-text-primary);
+        text-transform: uppercase;
+        line-height: 1.2;
+
+        @include respond (tab-port) {
+            margin-top: 4rem;
+            font-size: 2.7rem;
+        }
+    }
+
+    small {
+        display: block;
+        margin-top: 1rem;
+        margin-bottom: 2.6rem;
+        color: var(--color-less-lighter);
+
+        a:hover {
+            color: var(--color-text-primary);
+            border-color: var(--color-text-primary);
+        }
+    }
+    .letter {
+        position: absolute;
+        top: -10rem;
+        left: -10rem;
+        font-size: 26rem;
+        color: rgba(#fff, 0.07);
+        pointer-events: none;
+
+        @include respond (phone) {
+            top: -5rem;
+            left: -5rem;
+            font-size: 20rem;
+        }
+    }
+}

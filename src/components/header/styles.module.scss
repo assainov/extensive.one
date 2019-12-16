@@ -1,0 +1,154 @@
+@import '../../styles/mixins';
+
+.header {
+    height: var(--header-height);
+    background-color: var(--color-primary);
+
+    & > div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+    }
+
+    @include respond (phone-landscape) {
+        height: 7rem;
+    }
+}
+
+.logo {
+    color: var(--color-text-secondary);
+    font-size: 2.6rem;
+    font-weight: 400;
+    letter-spacing: -0.6px;
+}
+
+.top-item {
+    position: relative;
+    height: 4.5rem;
+}
+
+.navigation {
+    height: 100%;
+    ul {
+        list-style-type: none;
+        display: flex;
+        align-items: center;
+        height: 100%;
+    }
+
+    li {
+        margin: 0;
+    }
+
+    a, span {
+        padding: 1.6rem 1.4rem;
+        font-size: 1.1rem;
+        line-height: 4.5rem;
+        text-transform: uppercase;
+        color: var(--color-text-secondary);
+
+        &:hover {
+            background: rgba(#fff, 0.1);
+        }
+    }
+
+    span {
+        cursor: default;
+    }
+
+    @include respond (phone) {
+        display: none;
+    }
+}
+
+.dropdown-list {
+    position: absolute;
+    left: 0;
+    z-index: 1000;
+    width: 20rem;
+    height: auto !important;
+    display: block !important;
+    background-color: var(--color-secondary);
+    box-shadow: var(--global-shadow);
+
+    opacity: 0;
+    visibility: hidden;
+
+    a {
+        display: block;
+        padding: 0.8rem 1.5rem 0 2rem;
+        color: var(--color-text-primary);
+        line-height: 2.2rem;
+        transition: all 0.2s;
+
+        &:hover {
+            color: var(--color-primary);
+            padding-left: 2.5rem;
+        }
+    }
+
+    li:first-child a {
+        padding-top: 1.5rem;
+    }
+    li:last-child a {
+        padding-bottom: 1.5rem;
+    }
+}
+
+.top-item:hover .dropdown-list,
+.dropdown-list:hover {
+    opacity: 1;
+    visibility: visible;
+}
+
+.menu-button {
+    display: none;
+    @include respond(phone) {
+        display: block;
+    }
+    width: 32px;
+    height: 32px;
+    span {
+        display: block;
+        background-color: var(--color-text-secondary);
+        position: relative;
+        width: 3rem;
+        transition: all .2s ease-out;
+
+        &,
+        &::before,
+        &::after {
+            height: 1px;
+            background-color: var(--color-text-secondary);
+            display: inline-block;
+        }
+
+        &::before,
+        &::after {
+            content: "";
+            width: 3rem;
+            position: absolute;
+            transition: all .3s ease-out;
+            right: 0;
+        }
+
+        &::before { top: -0.8rem; }
+
+        &::after { top: 0.8rem; transform: scaleX(0.7) translateX(0.6rem);  }
+    }
+
+    &.open span {
+        background-color: transparent;
+
+        &::before {
+            top: 0;
+            transform: scale(0.9) rotate(-225deg);
+        }
+
+        &::after {
+            top: 0;
+            transform: scale(0.9) rotate(45deg);
+        }
+    }
+}

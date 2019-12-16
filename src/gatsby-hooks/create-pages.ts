@@ -6,20 +6,20 @@ interface ICategory {
   fieldValue: string;
 }
 
-interface INode {
-  node: {
-    fields: {
-      slug: string;
-    };
-    frontmatter: {
-      title: string;
-    };
+export interface INode {
+  fields: {
+    slug: string;
+  };
+  frontmatter: {
+    title: string;
   };
 }
 
 interface IQueryResult {
   allMarkdownRemark: {
-    edges: INode[];
+    edges: {
+      node: INode;
+    }[];
   };
   categoriesGroup: {
     group: ICategory[];
@@ -29,8 +29,8 @@ interface IQueryResult {
 export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
-  const blogPost = path.resolve(`./src/templates/blog-post.js`);
-  const categoryTemplate = path.resolve(`./src/templates/category.js`);
+  const blogPost = path.resolve(`./src/templates/blog-post.tsx`);
+  const categoryTemplate = path.resolve(`./src/templates/category.tsx`);
 
   const queryResult = await graphql<IQueryResult>(
     `
@@ -71,15 +71,15 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
     const previous = index === posts.length - 1 ? null : posts[index + 1].node;
     const next = index === 0 ? null : posts[index - 1].node;
 
-    // createPage({
-    //   path: post.node.fields.slug,
-    //   component: blogPost,
-    //   context: {
-    //     slug: post.node.fields.slug,
-    //     previous,
-    //     next,
-    //   },
-    // });
+    createPage({
+      path: post.node.fields.slug,
+      component: blogPost,
+      context: {
+        slug: post.node.fields.slug,
+        previous,
+        next,
+      },
+    });
   });
 
   // Extract category data from query
@@ -87,12 +87,12 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
 
   // Make category pages
   categories.forEach(category => {
-    // createPage({
-    //   path: `/categories/${kebabCase(category.fieldValue)}/`,
-    //   component: categoryTemplate,
-    //   context: {
-    //     category: category.fieldValue,
-    //   },
-    // });
+    createPage({
+      path: `/categories/${kebabCase(category.fieldValue)}/`,
+      component: categoryTemplate,
+      context: {
+        category: category.fieldValue,
+      },
+    });
   });
 };

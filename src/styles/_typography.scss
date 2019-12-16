@@ -1,0 +1,45 @@
+html {
+    font-size: 62.5%;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Josefin Sans", sans-serif;
+    font-weight: 600;
+    font-size: 1.6rem;
+    line-height: 1.7;
+    color: $color-text-primary;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Josefin Sans", sans-serif;
+    font-weight: 400;
+    color: $color-text-tertiary;
+}
+
+p {
+    font-family: "Domine", Arial;
+    color: $color-text-primary;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+small {
+    font-family: 'Domine';
+    font-size: 1.3rem;
+    font-weight: 400;
+
+    a {
+        display: inline-block;
+        border-bottom: 1px solid transparent;
+        padding-bottom: 0px;
+        transition: border-color 0.2s;
+
+        &:hover {
+            border-color: $color-text-secondary;
+        }
+    }
+}
