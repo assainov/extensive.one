@@ -41,7 +41,7 @@ const Subscribe: React.FC<IProps> = ({ post: { title, url } }) => {
       date.getUTCSeconds(),
     );
 
-    const requestUrl = 'https://formspree.io/moqvkojy';
+    const requestUrl = process.env.GATSBY_SUBSCRIBE_URL;
     const options: AxiosRequestConfig = {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
@@ -103,14 +103,13 @@ const Subscribe: React.FC<IProps> = ({ post: { title, url } }) => {
 
     axios({
       method: 'GET',
-      headers: { Authorization: `Bearer 546becbfd0c8aa` },
-      url: 'https://ipinfo.io/json',
+      headers: { Authorization: process.env.GATSBY_IP_SERVICE_TOKEN },
+      url: process.env.GATSBY_IP_SERVICE_URL,
     })
       .then(response => {
         sendFormRequest(response.data);
       })
       .catch(error => {
-        console.error(error);
         sendFormRequest('GeoData unavailable');
       });
   };
