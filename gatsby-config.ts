@@ -1,6 +1,11 @@
 import { config } from './content/website/config';
+import dotenv from 'dotenv';
 
 const { siteTitle, siteDescription, siteUrl, siteColors, siteIcons } = config;
+
+dotenv.config({
+  path: `.env`,
+});
 
 export default {
   siteMetadata: {

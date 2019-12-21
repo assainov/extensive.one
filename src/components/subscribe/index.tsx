@@ -101,10 +101,23 @@ const Subscribe: React.FC<IProps> = ({ post: { title, url } }) => {
       return setError('Email is not valid.');
     }
 
+    const serviceUrl = process.env.GATSBY_IP_SERVICE_URL;
+    const serviceToken = process.env.GATSBY_IP_SERVICE_TOKEN;
+
+    if (!serviceUrl) {
+      setSubmitting(false);
+      return setError('No service url provided');
+    }
+
+    if (!serviceToken) {
+      setSubmitting(false);
+      return setError('No service token provided');
+    }
+
     axios({
       method: 'GET',
-      headers: { Authorization: process.env.GATSBY_IP_SERVICE_TOKEN },
-      url: process.env.GATSBY_IP_SERVICE_URL,
+      headers: { Authorization: serviceToken },
+      url: serviceUrl,
     })
       .then(response => {
         sendFormRequest(response.data);
@@ -130,7 +143,7 @@ const Subscribe: React.FC<IProps> = ({ post: { title, url } }) => {
             value={email}
           />
           <Button type="submit" color="--color-primary" opaque className={styles.button} disabled={submitting}>
-            {submitting ? 'Sending...' : 'Subscribe'}
+            {submitting ? 'Submitting...' : 'Subscribe'}
           </Button>
         </>
       )}
