@@ -35,7 +35,7 @@
     overflow: hidden;
     width: 100%;
     &:not(:last-child) {
-        border-bottom: 1px solid var(--color-less-transparent);
+        border-bottom: 1px solid var(--color-primary);
     }
 }
 
@@ -57,7 +57,7 @@
         padding: 0 0 0 3rem;
         color: var(--color-primary);
         &:not(:last-child) {
-            border-bottom: 1px solid var(--color-less-transparent);
+            border-bottom: 1px solid var(--color-primary);
         }
         a {
             line-height: 3em;
