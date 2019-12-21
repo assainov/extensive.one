@@ -4,9 +4,13 @@ import kebabCase from 'lodash/kebabCase';
 
 import { IPureHeaderProps, IHeaderProps, IQuery } from './contracts';
 import styles from './styles.module.scss';
+import { isMobileSSR } from '../../utils/device-detect';
 
-export const PureHeader: React.FC<IPureHeaderProps> = ({ title, categories, menuOpen, toggleMenu }) => (
-  <header className={styles.header}>
+export const PureHeader: React.FC<IPureHeaderProps> = ({ title, categories, menuOpen, toggleMenu, location }) => (
+  <header
+    className={styles.header}
+    style={{ marginBottom: !isMobileSSR && location && location.pathname !== '/' ? '10rem' : '0' }}
+  >
     <div className="container">
       <div className={styles.logo}>
         <Link to="/">{title.toLowerCase()}</Link>
@@ -47,7 +51,7 @@ export const PureHeader: React.FC<IPureHeaderProps> = ({ title, categories, menu
   </header>
 );
 
-const Header: React.FC<IHeaderProps> = ({ menuOpen, toggleMenu }) => {
+const Header: React.FC<IHeaderProps> = ({ menuOpen, toggleMenu, location }) => {
   const data = useStaticQuery<IQuery>(graphql`
     query {
       site {
@@ -67,7 +71,9 @@ const Header: React.FC<IHeaderProps> = ({ menuOpen, toggleMenu }) => {
   const { title } = data.site.siteMetadata;
   const { group: categories } = data.allMarkdownRemark;
 
-  return <PureHeader menuOpen={menuOpen} toggleMenu={toggleMenu} title={title} categories={categories} />;
+  return (
+    <PureHeader menuOpen={menuOpen} toggleMenu={toggleMenu} title={title} categories={categories} location={location} />
+  );
 };
 
 export default Header;

@@ -25,9 +25,9 @@ const Layout: React.FC<IProps> = props => {
   return (
     <React.Fragment>
       <Helmet>
-        <style>{'body { background-color: var(--color-primary); }'}</style>
+        <style>{'body { background-color: var(--color-background-primary); }'}</style>
       </Helmet>
-      <Header menuOpen={menuOpen} toggleMenu={handleToggleMenu} />
+      <Header menuOpen={menuOpen} toggleMenu={handleToggleMenu} location={props.location} />
       <MobileMenu menuOpen={menuOpen} toggleMenu={handleToggleMenu} />
       {props.children}
       <Footer />

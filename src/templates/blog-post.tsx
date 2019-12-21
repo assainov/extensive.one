@@ -8,7 +8,6 @@ import SEO from '../components/seo';
 import PostTitle from '../components/post-title';
 import Subscribe from '../components/subscribe';
 import styles from './blog-post.module.scss';
-import { isMobileSSR } from '../utils/device-detect';
 import { IFrontMatter, INode } from '../pages';
 import { IPageProps } from '../typings/page-props';
 import { config } from '../../content/website/config';
@@ -43,7 +42,6 @@ class BlogPostTemplate extends React.Component<IPageProps & ITemplateProps & IQu
     return (
       <Layout location={location}>
         <SEO title={post.frontmatter.title} description={post.frontmatter.abstract} />
-        {!isMobileSSR && <div style={{ height: '100px', backgroundColor: 'var(--color-primary)' }} />}
         <Canvas>
           <PostTitle {...post.frontmatter} />
           <div className={styles.blogPost}>

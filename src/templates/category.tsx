@@ -5,9 +5,9 @@ import Canvas from '../components/canvas';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import AllPosts from '../components/all-posts';
-import { isMobileSSR } from '../utils/device-detect';
 import { INode } from '../pages';
 import { config } from '../../content/website/config';
+import { IPageProps } from '../typings/page-props';
 
 const { siteTitle, author } = config;
 
@@ -28,7 +28,7 @@ interface ITemplateProps {
   };
 }
 
-const Categories: React.FC<ITemplateProps & IQueryProps> = ({ pageContext, data }) => {
+const Categories: React.FC<ITemplateProps & IQueryProps & IPageProps> = ({ pageContext, data, location }) => {
   const { category } = pageContext;
   const { totalCount } = data.allMarkdownRemark;
 
@@ -42,9 +42,8 @@ const Categories: React.FC<ITemplateProps & IQueryProps> = ({ pageContext, data 
   }));
 
   return (
-    <Layout>
+    <Layout location={location}>
       <SEO title={`${category} Category | ${siteTitle}`} description={`All posts in ${category} Category`} />
-      {!isMobileSSR && <div style={{ height: '100px', backgroundColor: 'var(--color-primary)' }} />}
       <Canvas>
         <AllPosts
           heading={`Category &#8231; ${category} &#8231; ${totalCount} Article${totalCount > 1 ? 's' : ''}`}

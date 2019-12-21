@@ -1,7 +1,7 @@
 @import '../../styles/mixins';
 
 .hero {
-    background-color: var(--color-primary);
+    background-color: var(--color-background-primary);
     height: calc(99vh - var(--header-height));
     text-align: center;
 

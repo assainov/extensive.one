@@ -1,3 +1,5 @@
+import { WindowLocation } from '@reach/router';
+
 export interface ICategory {
   fieldValue: string;
   totalCount: number;
@@ -20,6 +22,7 @@ export interface IPureHeaderProps extends IHeaderProps {
 }
 
 export interface IHeaderProps {
+  location?: WindowLocation;
   menuOpen: boolean;
   toggleMenu: () => void;
 }

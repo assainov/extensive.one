@@ -4,6 +4,7 @@ import kebabCase from 'lodash/kebabCase';
 
 import SEO from './../components/seo';
 import { IPageProps } from '../typings/page-props';
+import Layout from '../components/layout';
 
 interface ICategory {
   fieldValue: string;
@@ -22,8 +23,9 @@ const CategoriesPage: React.FC<IQueryProps & IPageProps> = ({
   data: {
     allMarkdownRemark: { group: categories },
   },
+  location,
 }) => (
-  <div>
+  <Layout location={location}>
     <SEO title={`Categories`} />
     <div>
       <h1>Categories</h1>
@@ -37,7 +39,7 @@ const CategoriesPage: React.FC<IQueryProps & IPageProps> = ({
         ))}
       </ul>
     </div>
-  </div>
+  </Layout>
 );
 
 export default CategoriesPage;

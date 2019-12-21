@@ -4,7 +4,6 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import Canvas from '../components/canvas';
 import AllPosts from '../components/all-posts';
-import { isMobileSSR } from '../utils/device-detect';
 import { IPageProps } from '../typings/page-props';
 import { IArticle } from '.';
 
@@ -32,7 +31,6 @@ const ReadingList: React.FC<IPageProps> = props => {
   return (
     <Layout location={props.location}>
       <SEO title={`Reading List`} />
-      {!isMobileSSR && <div style={{ height: '100px', backgroundColor: 'var(--color-primary)' }} />}
       <Canvas>
         <AllPosts
           heading={`You have ${posts.length} article${posts.length === 1 ? '' : 's'} to read`}
