@@ -9,7 +9,7 @@ export const config = {
   siteLanguage: 'en',
   siteColors: {
     background: '#fff',
-    theme: '#3e64ff',
+    theme: '#5c82ff',
   },
   siteIcons: {
     favicon: `content/assets/extensive%20one.png`,
