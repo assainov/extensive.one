@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 import styles from './styles.module.scss';
 
 interface IGenericButton {
-  color: '--color-primary' | '--color-secondary' | '--color-tertiary';
+  color?: '--color-primary' | '--color-secondary' | '--color-tertiary' | '--color-text-secondary';
   opaque: boolean;
   type: 'link' | 'button' | 'submit';
   className?: string;
@@ -19,9 +19,11 @@ const Button: React.FC<IGenericButton> = ({ color, opaque, type, to, children, o
   let backgroundColor = `var(${color})`;
 
   let textColor =
-    color === '--color-primary' || color === '--color-tertiary' ? 'var(--color-secondary)' : 'var(--color-primary)';
+    color === '--color-primary' || color === '--color-tertiary'
+      ? 'var(--color-text-secondary)'
+      : 'var(--color-primary)';
 
-  let borderColor = 'transparent';
+  let borderColor = backgroundColor;
 
   if (!opaque) {
     backgroundColor = 'transparent';

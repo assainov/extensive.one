@@ -33,7 +33,7 @@
         top: -10rem;
         left: -10rem;
         font-size: 26rem;
-        color: rgba(#fff, 0.07);
+        color: var(--color-text-primary-transparent);
         pointer-events: none;
 
         @include respond (phone) {

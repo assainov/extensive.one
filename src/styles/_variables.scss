@@ -1,12 +1,14 @@
 // Colors
-$color-primary: #5edfff;
+$color-primary: #3e64ff;
 $color-secondary: #182628;
 $color-tertiary: #333333;
-$color-background-primary: #d4f0fc;
+$color-background-primary: #3e64ff;
 $color-background-secondary: #fff;
-$color-text-primary: #fff;
-$color-text-secondary: #182628;
+$color-text-primary: #182628;
+$color-text-secondary: #fff;
 $color-text-tertiary: #fff;
+$color-text-primary-transparent: rgba($color-text-primary, 0.07);
+$color-text-secondary-transparent: rgba($color-text-primary, 0.1);
 $color-less: #888888;
 $color-less-lighter: #aaaaaa;
 $color-less-transparent: rgba(#5edfff, 0.5);

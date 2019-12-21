@@ -14,7 +14,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: "Josefin Sans", sans-serif;
     font-weight: 400;
-    color: $color-text-tertiary;
+    color: $color-text-primary;
 }
 
 p {
@@ -39,7 +39,7 @@ small {
         transition: border-color 0.2s;
 
         &:hover {
-            border-color: $color-text-secondary;
+            border-color: $color-text-primary;
         }
     }
 }

@@ -88,12 +88,11 @@
     font-size: calc(99vh - var(--header-height) - 9.9rem);
     line-height: 1em;
     padding-top: 8rem;
-    color: rgba(#000, 0.1);
+    color: var(--color-text-secondary-transparent);
 
     @include respond (phone-landscape) {
         top: 25%;
         font-size: 20rem;
-        color: rgba(#000, 0.07);
     }
 
     @include respond (phone) {
@@ -134,7 +133,7 @@
         content: '' !important;
         width: 1.2rem !important;
         height: 1.2rem !important;
-        background-color: #000;
+        background-color: var(--color-text-secondary);
     }
     
 }
