@@ -9,7 +9,7 @@ export const config = {
   siteLanguage: 'en',
   siteColors: {
     background: '#fff',
-    theme: '#5edfff',
+    theme: '#000',
   },
   siteIcons: {
     favicon: `content/assets/weblogger.png`,
