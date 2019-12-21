@@ -74,9 +74,12 @@
     @include respond (phone) {
         margin-top: 2rem;
         & > * {
-            margin-top: 1rem;
             margin-right: 0 !important;
             width: 100%;
+
+            &:not(:first-child) {
+                margin-top: 2rem;
+            }
         }       
     }
 }

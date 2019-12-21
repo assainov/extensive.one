@@ -35,13 +35,38 @@
     
     p {
         font-weight: 400;
-        &:not(:last-child) {
+        &:not(:last-of-type) {
             margin-bottom: 3.4rem;
+        }
+    }
+
+    ul, ol {
+        margin-bottom: 3.4rem;
+
+        // Increase space between number and text
+        li {
+            list-style-position: inside;
+            padding: 0;
+
+            &:before {
+                content: "";
+                width: 0.7rem;
+                display: inline-block;
+            }
+        }
+        // Ignore ul because it has enough space
+        &:not(ul) > li:before {
+            width: 0;
+        }
+
+        & ul, & ol {
+            margin-bottom: 1rem;
         }
     }
 
     ul li p {
         margin-bottom: 0;
+        display: inline-block;
     }
 
     ul li li {
