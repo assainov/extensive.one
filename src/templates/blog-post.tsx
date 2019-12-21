@@ -11,6 +11,7 @@ import styles from './blog-post.module.scss';
 import { isMobileSSR } from '../utils/device-detect';
 import { IFrontMatter, INode } from '../pages';
 import { IPageProps } from '../typings/page-props';
+import { config } from '../../content/website/config';
 
 interface IQueryProps {
   data: {
@@ -34,8 +35,9 @@ class BlogPostTemplate extends React.Component<IPageProps & ITemplateProps & IQu
     const post = this.props.data.markdownRemark;
     const { previous, next, slug } = this.props.pageContext;
     const { location } = this.props;
+    const { siteUrl } = config;
 
-    const postUrl = encodeURIComponent(`https://weblogger.io${slug}`);
+    const postUrl = encodeURIComponent(`${siteUrl + slug}`);
     const discussUrl = `https://mobile.twitter.com/search?q=${postUrl}`;
 
     return (
