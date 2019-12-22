@@ -1,10 +1,10 @@
 import { IArticle } from '../pages';
 
 export function deleteFromReadingList(title: string): void {
-  const serializedPosts = localStorage.getItem('posts');
+  let serializedPosts = localStorage.getItem('posts');
 
   if (!serializedPosts || !serializedPosts.length) {
-    return;
+    serializedPosts = '[]';
   }
 
   let posts = JSON.parse(serializedPosts) as IArticle[];
@@ -27,10 +27,10 @@ export function deleteFromReadingList(title: string): void {
 }
 
 export function saveToReadingList(article: IArticle): void {
-  const serializedPosts = localStorage.getItem('posts');
+  let serializedPosts = localStorage.getItem('posts');
 
   if (!serializedPosts || !serializedPosts.length) {
-    return;
+    serializedPosts = '[]';
   }
 
   const posts = JSON.parse(serializedPosts) as IArticle[];
