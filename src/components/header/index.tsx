@@ -7,6 +7,14 @@ import styles from './styles.module.scss';
 import { isMobileSSR } from '../../utils/device-detect';
 import ThemeSwitcher from '../theme-switcher';
 
+export const ChangeTheme = (
+  <li className={styles.topItem}>
+    <span className={styles.topLink}>
+      <ThemeSwitcher />
+    </span>
+  </li>
+);
+
 export const PureHeader: React.FC<IPureHeaderProps> = ({ title, categories, menuOpen, toggleMenu, location }) => (
   <header
     className={styles.header}
@@ -43,11 +51,7 @@ export const PureHeader: React.FC<IPureHeaderProps> = ({ title, categories, menu
               Get In Touch
             </a>
           </li>
-          <li className={styles.topItem}>
-            <span className={styles.topLink}>
-              <ThemeSwitcher />
-            </span>
-          </li>
+          {ChangeTheme}
         </ul>
       </nav>
       <div className={`${styles.menuButton} ${menuOpen ? styles.open : ''}`} onClick={toggleMenu}>

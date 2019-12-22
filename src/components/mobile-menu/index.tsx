@@ -7,6 +7,8 @@ import kebabCase from 'lodash/kebabCase';
 import styles from './styles.module.scss';
 import { config } from '../../../content/website/config';
 import { IProps, MenuItem, IQuery } from './contracts';
+import ThemeSwitcher from '../theme-switcher';
+import { isMobileSSR } from '../../utils/device-detect';
 
 const MobileMenu: React.FC<IProps> = ({ menuOpen, toggleMenu }) => {
   const data = useStaticQuery<IQuery>(graphql`
@@ -119,6 +121,13 @@ const MobileMenu: React.FC<IProps> = ({ menuOpen, toggleMenu }) => {
                   </li>
                 );
               })}
+              {isMobileSSR && ( // Bug with Theme switcher not working with two instances (so load one per device)
+                <li className={styles.topItem}>
+                  <span className={styles.topLink}>
+                    <ThemeSwitcher />
+                  </span>
+                </li>
+              )}
             </ul>
           </nav>
         </div>
