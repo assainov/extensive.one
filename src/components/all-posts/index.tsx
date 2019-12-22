@@ -31,7 +31,7 @@ class Posts extends React.Component<IOwnProps & IDispatchProps> {
 
   render(): JSX.Element {
     const maxAbstractChars = isMobileSSR ? 250 : 300;
-    const { articles, isReadingList, heading = '' } = this.props;
+    const { articles, isReadingList, heading = 'Latest posts' } = this.props;
 
     return (
       <div className={styles.allPosts}>
@@ -53,15 +53,14 @@ class Posts extends React.Component<IOwnProps & IDispatchProps> {
               <p>{truncate(post.abstract, maxAbstractChars, true)}</p>
             </div>
             <div className={styles.panel}>
-              <Button type="link" to={post.link} color="--color-primary" opaque>
+              <Button type="link" to={post.link} className={styles.actionPrimary}>
                 Read on
               </Button>
               {isReadingList && (
                 <Button
                   type="button"
                   onClick={(): void => this.removeFromReadingList(post.title)}
-                  color="--color-primary"
-                  opaque={false}
+                  className={styles.actionSecondary}
                 >
                   Remove from list
                 </Button>
@@ -70,8 +69,7 @@ class Posts extends React.Component<IOwnProps & IDispatchProps> {
                 <Button
                   type="button"
                   onClick={(): void => this.addToReadingList(post)}
-                  color="--color-primary"
-                  opaque={false}
+                  className={styles.actionSecondary}
                 >
                   Read later
                 </Button>

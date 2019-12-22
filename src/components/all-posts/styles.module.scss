@@ -21,45 +21,71 @@
         margin: 0 auto;
         padding: 0;
     }
+}
 
-    .abstract {
-        $font-size: 1.6rem;
-        $line-height: 1.9;
-        $lines-to-show: 3;
-        $lines-to-show-mobile: 4;
-        font-weight: 400;
 
-        margin: 0 auto;
-        max-width: 100%;
-        font-size: $font-size;
-        line-height: $line-height;
 
-        @include respond(phone) {
-            max-width: 400px;
-        }
+.abstract {
+    $font-size: 1.6rem;
+    $line-height: 1.9;
+    $lines-to-show: 3;
+    $lines-to-show-mobile: 4;
+    font-weight: 400;
+
+    margin: 0 auto;
+    max-width: 100%;
+    font-size: $font-size;
+    line-height: $line-height;
+
+    @include respond(phone) {
+        max-width: 400px;
+    }
+}
+
+.panel {
+    margin-bottom: 8rem;
+    margin-top: 3.6rem;
+    
+    & > *:first-child {
+        margin-right: 1rem;
     }
 
-    .panel {
-        margin-bottom: 8rem;
-        margin-top: 3.6rem;
-        
-        & > *:first-child {
-            margin-right: 1rem;
-        }
+    @include respond (phone) {
+        & > * {
+            width: 100%;
 
-        @include respond (phone) {
-            & > * {
-                width: 100%;
-
-                &:not(:last-child) {
-                    margin-bottom: 2rem;
-                }
+            &:not(:last-child) {
+                margin-bottom: 2rem;
             }
         }
     }
+}
 
-    .no-results {
-        text-align: center;
-        font-weight: 400;
+.action-primary {
+    background-color: var(--color-primary);
+    color: var(--color-text-secondary);
+}
+
+.action-secondary {
+    background-color: transparent;
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.no-results {
+    text-align: center;
+    font-weight: 400;
+}
+
+:global(.dark) {
+
+    .action-primary {
+        background-color: var(--color-primary);
+        color: #fff;
+    }
+        
+    .action-secondary {
+        color: var(--color-text-secondary);
+        border-color: var(--color-text-secondary);
     }
 }

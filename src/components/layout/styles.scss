@@ -1,20 +1,20 @@
 @import "../../styles/variables";
 @import '../../styles/mixins';
 
-:root {
+body {
     --header-height: 10rem;
     --global-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.2);
 
     --color-primary: #{$color-primary};
     --color-secondary: #{$color-secondary};
-    --color-tertiary: #{$color-tertiary};
 
     --color-background-primary: #{$color-background-primary};
     --color-background-secondary: #{$color-background-secondary};
 
+    --color-prism-background: #{$color-prism-background};
+
     --color-text-primary: #{$color-text-primary};
     --color-text-secondary: #{$color-text-secondary};
-    --color-text-tertiary: #{$color-text-tertiary};
     --color-text-primary-transparent: #{$color-text-primary-transparent};
     --color-text-secondary-transparent: #{$color-text-secondary-transparent};
 
@@ -31,4 +31,26 @@
     @include respond (phone) {
         --header-height: 8rem;
     }
+    color: $color-text-primary;
 }
+
+body.dark {
+    -webkit-font-smoothing: antialiased;
+  
+    --global-shadow: 0px 0px 1px 1px #{$dark-color-primary};
+
+    --color-primary: #{$dark-color-primary};
+    --color-secondary: #{$dark-color-secondary};
+
+    --color-background-primary: #{$dark-color-background-primary};
+    --color-background-secondary: #{$dark-color-background-secondary};
+
+    --color-prism-background: #{$dark-color-prism-background};
+
+    --color-text-primary: #{$dark-color-text-primary};
+    --color-text-secondary: #{$dark-color-text-secondary};
+    --color-text-primary-transparent: #{$dark-color-text-primary-transparent};
+    --color-text-secondary-transparent: #{$dark-color-text-secondary-transparent};
+
+    color: $dark-color-text-secondary;
+  }

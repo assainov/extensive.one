@@ -17,8 +17,8 @@ This is my first post on my new fake blog! How exciting!
         </div>
         <div className={styles.panel}>
             <Button type='link' to={post.link} color='--color-primary' opaque>Read on</Button>
-            {isReadingList && <Button type='button' onClick={() => removeFromReadingList(post.title)} color='--color-primary' opaque={false}>Remove from list</Button>}
-            {!isReadingList && <Button type='button' onClick={() => addToReadingList(post)} color='--color-primary' opaque={false}>Read later</Button>}
+            {isReadingList && <Button type='button' onClick={() => removeFromReadingList(post.title)}>Remove from list</Button>}
+            {!isReadingList && <Button type='button' onClick={() => addToReadingList(post)}>Read later</Button>}
         </div>
     </article>
 ))}

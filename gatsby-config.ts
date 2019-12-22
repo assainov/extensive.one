@@ -15,6 +15,7 @@ export default {
   },
   plugins: [
     'gatsby-plugin-sass',
+    'gatsby-plugin-dark-mode',
     {
       resolve: `gatsby-plugin-prefetch-google-fonts`,
       options: {

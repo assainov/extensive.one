@@ -1,6 +1,9 @@
 @import '../styles/mixins';
 
 .blog-post {
+    // & > * {
+    //     color: var(--color-text-secondary);
+    // }
     footer {
         margin-top: 5rem;
     }
@@ -20,6 +23,7 @@
         text-transform: uppercase;
         font-weight: 600;
         margin-bottom: 3.4rem;
+        color: var(--color-text-primary);
     }
 
     h5, h6 {

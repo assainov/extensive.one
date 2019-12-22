@@ -18,4 +18,8 @@ export const config = {
   social: {
     twitter: `ilyas_assainov`,
   },
+  themeModes: {
+    darkMessage: 'Join the dark side',
+    lightMessage: 'Regret the decision',
+  },
 };

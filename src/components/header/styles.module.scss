@@ -41,7 +41,7 @@
         margin: 0;
     }
 
-    a, span {
+    a, span:not(.top-link) {
         padding: 1.6rem 1.4rem;
         font-size: 1.1rem;
         line-height: 4.5rem;
@@ -50,6 +50,7 @@
 
         &:hover {
             background: rgba(#fff, 0.1);
+            cursor: pointer;
         }
     }
 

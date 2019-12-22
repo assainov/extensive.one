@@ -142,7 +142,7 @@ const Subscribe: React.FC<IProps> = ({ post: { title, url } }) => {
             onChange={handleChange}
             value={email}
           />
-          <Button type="submit" color="--color-primary" opaque className={styles.button} disabled={submitting}>
+          <Button type="submit" className={styles.button} disabled={submitting}>
             {submitting ? 'Submitting...' : 'Subscribe'}
           </Button>
         </>

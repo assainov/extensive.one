@@ -71,14 +71,13 @@ class Hero extends React.Component<IOwnProps & IDispatchProps> {
                     By {author} / {date} / In <CategoryLinks categories={categories}></CategoryLinks>
                   </small>
                   <div className={styles.panel}>
-                    <Button type="link" to={link} color="--color-text-secondary" opaque>
+                    <Button type="link" to={link} className={styles.actionPrimary}>
                       Read on
                     </Button>
                     <Button
                       type="button"
                       onClick={(): void => this.addToReadingList({ title, abstract, link, author, categories, date })}
-                      color="--color-text-secondary"
-                      opaque={false}
+                      className={styles.actionSecondary}
                     >
                       Read later
                     </Button>

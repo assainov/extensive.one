@@ -84,6 +84,26 @@
     }
 }
 
+.action-primary {
+    background-color: var(--color-text-secondary);
+    color: var(--color-primary);
+}
+
+:global(.dark) .action-primary {
+    background-color: var(--color-primary);
+    color: var(--color-text-primary) !important;
+}
+
+.action-secondary {
+    background-color: transparent;
+    color: var(--color-text-secondary);
+}
+
+:global(.dark) .action-secondary {
+    background-color: transparent;
+    border-color: var(--color-text-secondary);
+}
+
 
 .letter {
     display: block;

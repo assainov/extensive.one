@@ -1,19 +1,33 @@
 // Colors
 $color-primary: #5c82ff;
 $color-secondary: #182628;
-$color-tertiary: #333333;
 $color-background-primary: #5c82ff;
 $color-background-secondary: #fff;
 $color-text-primary: #182628;
 $color-text-secondary: #fff;
-$color-text-tertiary: #fff;
 $color-text-primary-transparent: rgba($color-text-primary, 0.07);
 $color-text-secondary-transparent: rgba($color-text-primary, 0.1);
 $color-less: #888888;
 $color-less-lighter: #aaaaaa;
-$color-less-transparent: rgba(#5edfff, 0.5);
+$color-less-transparent: rgba($color-primary, 0.5);
 $color-link: #c62641;
 $color-facebook: #3e5b98;
 $color-twitter: #4da7de;
 $color-reddit: #e74a1e;
 $color-linkedin: #0077B5;
+
+$color-prism-background: #2c2c36;
+
+
+
+//Dark theme
+$dark-color-primary: #ff0000;
+$dark-color-secondary: #182628;
+$dark-color-background-primary: #16161a;
+$dark-color-background-secondary: #16161a;
+$dark-color-text-primary: #fffffe;
+$dark-color-text-secondary: #c3d2e7;
+$dark-color-text-primary-transparent: rgba($dark-color-text-primary, 0.07);
+$dark-color-text-secondary-transparent: rgba($dark-color-text-primary, 0.1);
+
+$dark-color-prism-background: #212127;

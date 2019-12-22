@@ -5,6 +5,7 @@ import kebabCase from 'lodash/kebabCase';
 import { IPureHeaderProps, IHeaderProps, IQuery } from './contracts';
 import styles from './styles.module.scss';
 import { isMobileSSR } from '../../utils/device-detect';
+import ThemeSwitcher from '../theme-switcher';
 
 export const PureHeader: React.FC<IPureHeaderProps> = ({ title, categories, menuOpen, toggleMenu, location }) => (
   <header
@@ -41,6 +42,11 @@ export const PureHeader: React.FC<IPureHeaderProps> = ({ title, categories, menu
             <a className={styles.topLink} href="mailto:iliyas.assainov@gmail.com">
               Get In Touch
             </a>
+          </li>
+          <li className={styles.topItem}>
+            <span className={styles.topLink}>
+              <ThemeSwitcher />
+            </span>
           </li>
         </ul>
       </nav>
