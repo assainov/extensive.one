@@ -19,7 +19,7 @@ export const config = {
     twitter: `ilyas_assainov`,
   },
   themeModes: {
-    darkMessage: 'Join the dark side',
-    lightMessage: 'Regret the decision',
+    darkMessage: 'Dark mode',
+    lightMessage: 'Light mode',
   },
 };
