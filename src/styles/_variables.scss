@@ -1,4 +1,4 @@
-// Colors
+/* Colors */
 $color-primary: #5c82ff;
 $color-secondary: #182628;
 $color-background-primary: #5c82ff;
@@ -16,11 +16,8 @@ $color-twitter: #4da7de;
 $color-reddit: #e74a1e;
 $color-linkedin: #0077B5;
 
-$color-prism-background: #2c2c36;
 
-
-
-//Dark theme
+/* Dark theme Colors */
 $dark-color-primary: #5c82ff;
 $dark-color-secondary: #182628;
 $dark-color-background-primary: #16161a;
@@ -30,4 +27,22 @@ $dark-color-text-secondary: #c3d2e7;
 $dark-color-text-primary-transparent: rgba($dark-color-text-primary, 0.07);
 $dark-color-text-secondary-transparent: rgba($dark-color-text-primary, 0.1);
 
-$dark-color-prism-background: #212127;
+
+/* New Moon Code Theme Variables */
+$code-font-family: Menlo, 'Roboto Mono', Courier New, monospace;
+$code-font-color: #b3b9c5;
+$code-inline-background: rgb(248, 239, 201);
+$border-radius: 4px;
+$string: #92d192;
+$variable: #f2777a;
+$property: #abb2bf;
+$number: #fca369;
+$operator: #ac8d58;
+$punctuation: #d5d8df;
+$comment: #777c85;
+$function: #62cfcf;
+$keyword: #ffeead;
+$attribute: #ffd479;
+$class: #e1a6f2;
+$tag: #6ab0f3;
+$error: #f2777a;

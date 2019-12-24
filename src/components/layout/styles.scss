@@ -11,8 +11,6 @@ body {
     --color-background-primary: #{$color-background-primary};
     --color-background-secondary: #{$color-background-secondary};
 
-    --color-prism-background: #{$color-prism-background};
-
     --color-text-primary: #{$color-text-primary};
     --color-text-secondary: #{$color-text-secondary};
     --color-text-primary-transparent: #{$color-text-primary-transparent};
@@ -44,8 +42,6 @@ body.dark {
 
     --color-background-primary: #{$dark-color-background-primary};
     --color-background-secondary: #{$dark-color-background-secondary};
-
-    --color-prism-background: #{$dark-color-prism-background};
 
     --color-text-primary: #{$dark-color-text-primary};
     --color-text-secondary: #{$dark-color-text-secondary};

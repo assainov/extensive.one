@@ -85,7 +85,7 @@
 
 .button {
     background-color: var(--color-primary);
-    border: none;
+    border: none !important;
     color: #fff;
     height: 4.2rem;
     @include respond(phone) {
