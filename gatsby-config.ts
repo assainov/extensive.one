@@ -72,7 +72,7 @@ export default {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
+        trackingId: process.env.GATSBY_GA_TRACKING_CODE,
       },
     },
     `gatsby-plugin-feed`,
