@@ -83,18 +83,18 @@
             position: absolute;
             left: 7rem;
             top: 0;
-            content: "\201D";
-            font-family: Arial;
+            content: "!";
+            font-family: Domine;
             color: var(--color-text-secondary);
             background-color: var(--color-primary);
-            font-size: 6rem;
+            font-size: 3rem;
             font-weight: 400;
             width: 5rem;
             height: 5rem;
             display: block;
-            line-height: 8rem;
+            line-height: 5rem;
             text-align: center;
-            transform: scale(-1) translateY(50%);
+            transform: translateY(-50%);
         }
 
         font-size: 2rem;
@@ -105,6 +105,12 @@
         @include respond(phone) {
             padding: 4rem 3rem;
             font-size: 1.6rem;
+            &:before {
+                position: absolute;
+                right: 3rem;
+                left: unset;
+                top: 0;
+            }
         }
     }
 }
