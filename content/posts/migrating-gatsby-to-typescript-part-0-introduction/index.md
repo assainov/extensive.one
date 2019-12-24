@@ -29,9 +29,9 @@ Let's take a look [why corporates usually choose expensive traditional CMS](http
 
 It just so happens that the listed benefits perfectly play with headless CMS and Gatsby! Well... Except maybe the last two: speed of development and quality.
 
-As I mentioned in the beginning, it's quite easy to make Gatsby site complex as the application grows - and with complexity come bugs, and with bugs come slow iterations.
+As I mentioned in the beginning, it's quite easy to make Gatsby site complex as it grows - and with complexity come bugs, and with bugs come slow iterations.
 
-It's quite easy to make Gatsby site complex as the application grows - and with complexity come bugs, and with bugs come slow iterations.
+> It's easy to make Gatsby site complex as it grows - and with complexity come bugs, and with bugs come slow iterations.
 
 Now, let's check how TypeScript can help.
 
@@ -45,7 +45,7 @@ Working with multiple developers becomes easier as every one now follows strict 
 
 But what do the benefits above really mean for your overall project success? Overall, TypeScript helps you sustain the quality and development speed as your application grows.
 
-Overall, TypeScript helps you sustain the quality and development speed as your application grows.
+> TypeScript helps you sustain the quality and development speed as your application grows.
 
 Now, some people are always reluctant of introducing new technologies. They might say something like:
 
