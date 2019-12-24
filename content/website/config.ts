@@ -22,4 +22,8 @@ export const config = {
     darkMessage: 'Dark mode',
     lightMessage: 'Light mode',
   },
+  googleSearchConsoleTag: {
+    name: 'google-site-verification',
+    content: 'K1taLlPkWJTLpW9UIVfy9wi2MHdKHCNt6v6bApXxvKI',
+  },
 };

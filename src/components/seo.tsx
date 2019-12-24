@@ -18,6 +18,7 @@ const {
   siteUrl,
   author,
   siteIcons: { image },
+  googleSearchConsoleTag,
 } = config;
 
 const SEO: React.FC<IProps> = ({
@@ -82,6 +83,10 @@ const SEO: React.FC<IProps> = ({
         {
           name: `twitter:image`,
           content: image,
+        },
+        {
+          name: googleSearchConsoleTag.name,
+          content: googleSearchConsoleTag.content,
         },
       ].concat(meta)}
     />
