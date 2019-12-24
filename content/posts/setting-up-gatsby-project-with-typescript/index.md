@@ -126,7 +126,7 @@ The config above will turn on prettier formatting on save while fixing all ESLin
 
 If you want to learn a bit more in-depth about Prettier and ESLint, check out this [link](https://www.robertcooper.me/using-eslint-and-prettier-in-a-typescript-project).
 
-If you've set up everything correctly, but eslint and prettier aren't working, make sure you install the ESLint extension and [TypeScript](https://www.npmjs.com/package/typescript) dependency.
+> If you've set up everything correctly, but eslint and prettier aren't working, make sure you install the ESLint extension and [TypeScript](https://www.npmjs.com/package/typescript) dependency.
 
 ## TypeScript Integration
 
@@ -138,7 +138,7 @@ TypeScript dependecies, which will be used:
 ```bash
 npm i -D gatsby-plugin-typescript typescript ts-node source-map-support @types/react @types/react-dom @types/node @types/react-helmet @types/typography
 ```
-I don't want to touch `ts-node` and `source-map-support` just yet - we will cover them later on.
+I don't want to touch `ts-node` and `source-map-support` just yet - we will cover them in the next part.
 
 For now just configure `gatsby-plugin-typescript` like so in the `gatsby-config.js`:
 <div class="filename">gatsby-config.js</div>
@@ -151,7 +151,7 @@ plugins: [
 
 What I want to explain is how TypeScript integrates with Gatsby, and specifically with React. Gatsby is bundled with Webpack under the hood. If you have worked with React and TypeScript, you might know that [@babel/plugin-transform-typescript](https://babeljs.io/docs/en/babel-plugin-transform-typescript) is a handy babel plugin that transpiles TypeScript files into plain JavaScript. It also adds TypeScript syntax support to your code. Amazing, right?
 
-Not yet. Actually the plugin alone does not do any type-checking for your code - it only transpiles it to JS, and even with some [caveats](https://gatsby.dev/unit-testing\). That means if you have any serious TypeScript errors, you will never find them. So, you need to find a way to type-check the code yourself.
+Not yet. Actually the plugin alone does not do any type-checking for your code - it only transpiles it to JS, and even with some [caveats](https://gatsby.dev/unit-testing). That means if you have any serious TypeScript errors, you will never find them. So, you need to find a way to type-check the code yourself.
 
 How do you do it? That's where `typescript` library comes into play. Once you setup your preferred compiler options by running `tsc --init` and configuring `tsconfig.json` , you can just add and run any of the commands in `package.json`:
 <div class="filename">package.json</div>
