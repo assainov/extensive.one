@@ -1,5 +1,5 @@
 ---
-title: "Migrating Gatsby Site to TypeScript - Part 0: Introduction"
+title: "Introduction: Migrating Gatsby Site to TypeScript"
 date: "2019-12-23T01:13:03.284Z"
 abstract: My reflections on migrating Gatsby to TypeScript. Why and when one must consider migrating. Where to look for resources.
 categories: ["Gatsby", "TypeScript"]
@@ -82,7 +82,7 @@ I also had other questions for the migration:
 
 With all the questions above, I decided to tackle them one by one, and to share the highlights in the upcoming series Migrating Gatsby to TypeScript:
 
-- Part 1: Setting up Gatsby with TypeScript
+- [Part 1: Setting up Gatsby project with TypeScript](https://www.extensive.one/setting-up-gatsby-project-with-typescript)
 - Part 2: Converting Gatsby API files into TypeScript
 - Part 3: Converting Gatsby Pages to TypeScript
 - Part 4: Testing Gatsby + TypeScript Project with Jest & Cypress
@@ -95,3 +95,5 @@ To complement the series with real life examples, I have migrated a regular [gat
 In this introductory article, you saw why TypeScript is a necessary choice when working with enterprise Gatsby projects. TypeScript brings back the iteration speed and quality to large data-driven websites. However, at the time of writing this article, there is no defacto way of building Gatsby sites with TypeScript. That's what I attempt to change in my upcoming series and the [Gatsby Extensive Starter with TypeScript.](https://github.com/assainov/gatsby-extensive-starter-typescript)
 
 I hope you are stocked for the series, and if so, consider subscribing!
+
+Next part: [Setting up Gatsby project with TypeScript](https://www.extensive.one/setting-up-gatsby-project-with-typescript)
