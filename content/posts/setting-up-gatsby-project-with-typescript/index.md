@@ -231,4 +231,4 @@ By following this approach, we lost autocomplete, but we're now able to add styl
 
 Let's recall what we have achieved in this tutorial. In order to maintain consistency across the project, we enabled ESLint (and Prettier) with the TypeScript-specific parser. Then we went on to add Gatsby plugin to compile React files. In the end we added support for CSS/SASS imports for TypeScript compiler.
 
-What we haven't setup is the TypeScript coverage for Gatsby API files such as `gatsby-config.js` and `gatsby-node.js` because these files aren't transpiled through the webpack like the React components. The good news is we are going to cover that in the next part. Stay tuned!
+What we haven't setup is the TypeScript coverage for Gatsby API files such as `gatsby-config.js` and `gatsby-node.js` because these files aren't transpiled through the webpack like the React components. The good news is we are going to cover that in the next part.
