@@ -64,6 +64,7 @@
 .action-primary {
     background-color: var(--color-primary);
     color: var(--color-text-secondary);
+    border-color: var(--color-primary);
 }
 
 .action-secondary {
@@ -80,8 +81,8 @@
 :global(.dark) {
 
     .action-primary {
-        background-color: var(--color-primary);
         color: #fff;
+        border-color: var(--color-text-secondary);
     }
         
     .action-secondary {
