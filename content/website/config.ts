@@ -24,6 +24,6 @@ export const config = {
   },
   googleSearchConsoleTag: {
     name: 'google-site-verification',
-    content: 'K1taLlPkWJTLpW9UIVfy9wi2MHdKHCNt6v6bApXxvKI',
+    content: 'pfWWlw0JqdyBkxJa-GoWYVA5_P5r547EAV0OQYnN420',
   },
 };
