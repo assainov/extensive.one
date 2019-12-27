@@ -29,27 +29,39 @@ interface ITemplateProps {
   };
 }
 
-class BlogPostTemplate extends React.Component<IPageProps & ITemplateProps & IQueryProps> {
+class BlogPostTemplate extends React.Component<
+  IPageProps & ITemplateProps & IQueryProps
+> {
   render(): JSX.Element {
     const post = this.props.data.markdownRemark;
     const { previous, next, slug } = this.props.pageContext;
     const { location } = this.props;
-    const { siteUrl } = config;
+    const { siteUrl, codeRepository } = config;
 
     const postUrl = encodeURIComponent(`${siteUrl + slug}`);
+    const feedbackUrl = `${codeRepository}/issues/new?labels=comment&title=Comment%20About: ${post.frontmatter.title}&body=Your%20comment%20here...`;
     const discussUrl = `https://mobile.twitter.com/search?q=${postUrl}`;
 
     return (
       <Layout location={location}>
-        <SEO title={post.frontmatter.title} description={post.frontmatter.abstract} />
+        <SEO
+          title={post.frontmatter.title}
+          description={post.frontmatter.abstract}
+        />
         <Canvas>
           <PostTitle {...post.frontmatter} />
           <div className={styles.blogPost}>
             <div dangerouslySetInnerHTML={{ __html: post.html }} />
             <footer>
-              <a href={discussUrl} target="_blank" rel="noopener noreferrer">
-                Discuss on Twitter
+              <h2>Comments</h2>
+              <a href={feedbackUrl} target="_blank" rel="noopener noreferrer">
+                Ask a question or submit feedback on GitHub.
               </a>
+              <div>
+                <a href={discussUrl} target="_blank" rel="noopener noreferrer">
+                  Discuss on Twitter
+                </a>
+              </div>
             </footer>
           </div>
           <Subscribe post={{ title: post.frontmatter.title, url: postUrl }} />

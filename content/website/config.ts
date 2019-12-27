@@ -5,7 +5,8 @@ export const config = {
   authorDescription: `Ilyas is a full stack developer specializing in extensible JavaScript solutions. 
   In this blog, he shares his daily challenges and solutions.`,
   email: `iliyas.assainov@gmail.com`,
-  siteUrl: `https://www.extensive.one`,
+  siteUrl: `https://www.extensive.one`, // no trailing slash
+  codeRepository: `https://github.com/assainov/extensive.one`, // no trailing slash
   siteLanguage: 'en',
   siteColors: {
     background: '#fff',
