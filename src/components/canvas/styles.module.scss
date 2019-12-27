@@ -2,6 +2,7 @@
 @import '../../styles/mixins';
 
 .main {
+    position: relative;
     background-color: var(--color-background-primary);
     width: 100%;
 }

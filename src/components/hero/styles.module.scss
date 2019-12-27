@@ -1,6 +1,7 @@
 @import '../../styles/mixins';
 
 .hero {
+    position: relative;
     background-color: var(--color-background-primary);
     height: calc(99vh - var(--header-height));
     text-align: center;
@@ -12,6 +13,15 @@
 
     @include respond(phone-large-height) {
         height: calc(62rem - var(--header-height));
+    }
+}
+
+.featured-label {
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+
+    @include respond(phone-large-height) {
+        margin-bottom: 1rem;
     }
 }
 
@@ -38,7 +48,7 @@
 }
 
 .title {
-    $font-size: 6.4rem;
+    $font-size: 5.4rem;
     $line-height: 1.3;
 
     $font-size-mobile: 2.7rem;

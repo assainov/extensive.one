@@ -33,7 +33,8 @@ class Hero extends React.Component<IOwnProps & IDispatchProps> {
     arrows: false,
   };
 
-  addToReadingList = (article: IArticle): void => saveToReadingList.call(this, article);
+  addToReadingList = (article: IArticle): void =>
+    saveToReadingList.call(this, article);
 
   render(): JSX.Element {
     const maxTitleChars = isMobileSSR ? 50 : 70;
@@ -42,31 +43,53 @@ class Hero extends React.Component<IOwnProps & IDispatchProps> {
     return (
       <div className={styles.hero}>
         <Slider {...this.settings}>
-          {articles.map(({ title, abstract, link, author, categories, date }) => (
-            <div key={title}>
-              <div className="container">
-                <article className={styles.slide}>
-                  <h2 className={styles.title}>{truncate(title, maxTitleChars, true)}</h2>
-                  <small>
-                    By {author} / {date} / In <CategoryLinks categories={categories}></CategoryLinks>
-                  </small>
-                  <div className={styles.panel}>
-                    <Button type="link" to={link} className={styles.actionPrimary}>
-                      Read on
-                    </Button>
-                    <Button
-                      type="button"
-                      onClick={(): void => this.addToReadingList({ title, abstract, link, author, categories, date })}
-                      className={styles.actionSecondary}
-                    >
-                      Read later
-                    </Button>
-                  </div>
-                  <div className={styles.letter}>{title[0].toUpperCase()}</div>
-                </article>
+          {articles.map(
+            ({ title, abstract, link, author, categories, date, featured }) => (
+              <div key={title}>
+                <div className="container">
+                  <article className={styles.slide}>
+                    <span className={styles.featuredLabel}>Featured</span>
+                    <h2 className={styles.title}>
+                      {truncate(title, maxTitleChars, true)}
+                    </h2>
+                    <small>
+                      By {author} / {date} / In{' '}
+                      <CategoryLinks categories={categories}></CategoryLinks>
+                    </small>
+                    <div className={styles.panel}>
+                      <Button
+                        type="link"
+                        to={link}
+                        className={styles.actionPrimary}
+                      >
+                        Read on
+                      </Button>
+                      <Button
+                        type="button"
+                        onClick={(): void =>
+                          this.addToReadingList({
+                            title,
+                            abstract,
+                            link,
+                            author,
+                            categories,
+                            date,
+                            featured,
+                          })
+                        }
+                        className={styles.actionSecondary}
+                      >
+                        Read later
+                      </Button>
+                    </div>
+                    <div className={styles.letter}>
+                      {title[0].toUpperCase()}
+                    </div>
+                  </article>
+                </div>
               </div>
-            </div>
-          ))}
+            ),
+          )}
         </Slider>
       </div>
     );
@@ -76,7 +99,8 @@ class Hero extends React.Component<IOwnProps & IDispatchProps> {
 const mapDispatchToProps = (dispatch: Dispatch): IDispatchProps => {
   return {
     addArticle: (): IDefaultAction => dispatch({ type: 'ADD_POST_START' }),
-    notifyPostExists: (): IDefaultAction => dispatch({ type: 'POST_ALREADY_EXISTS' }),
+    notifyPostExists: (): IDefaultAction =>
+      dispatch({ type: 'POST_ALREADY_EXISTS' }),
   };
 };
 

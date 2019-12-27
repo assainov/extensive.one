@@ -15,6 +15,7 @@ export interface IFrontMatter {
   title: string;
   abstract: string;
   categories: string[];
+  featured: boolean;
 }
 
 export interface IArticle extends IFrontMatter {
@@ -51,12 +52,15 @@ const HomePage: React.FC<IQueryProps & IPageProps> = ({ data, location }) => {
     categories: node.frontmatter.categories,
     link: node.fields.slug,
     author: config.author,
+    featured: node.frontmatter.featured,
   }));
+
+  const featuredArticles = articles.filter(article => article.featured);
 
   return (
     <Layout location={location}>
       <SEO title={`Home`} />
-      <Hero articles={articles} />
+      <Hero articles={featuredArticles} />
       <Canvas>
         <AllPosts articles={articles} />
       </Canvas>
@@ -79,6 +83,7 @@ export const pageQuery = graphql`
             title
             abstract
             categories
+            featured
           }
         }
       }

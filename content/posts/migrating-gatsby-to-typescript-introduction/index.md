@@ -3,6 +3,7 @@ title: "Introduction: Migrating Gatsby Site to TypeScript"
 date: "2019-12-23T01:13:03.284Z"
 abstract: My reflections on migrating Gatsby to TypeScript. Why and when one must consider migrating. Where to look for resources.
 categories: ["Gatsby", "TypeScript"]
+featured: true
 ---
 
 For the past year, I've been working on a few medium-large scale [Gatsby](https://www.gatsbyjs.org/) projects. While Gatsby itself and the surrounding ecosystem have been amazing, with every new change request or feature for a project, it felt like the system was becoming more and more fragile.

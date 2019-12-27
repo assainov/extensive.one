@@ -3,6 +3,7 @@ title: "Part 2: Converting Gatsby Config and Node API to TypeScript"
 date: "2019-12-25T10:00:00.284Z"
 abstract: In this part, we will examine multiple ways how to write `gatsby-config` and `gatsby-node` modules in TypeScript.
 categories: ["Gatsby", "TypeScript"]
+featured: true
 ---
 
 
