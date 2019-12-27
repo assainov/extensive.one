@@ -8,6 +8,11 @@
     @include respond(phone) {
         margin-top: -1px;
     }
+
+
+    @include respond(phone-large-height) {
+        height: calc(62rem - var(--header-height));
+    }
 }
 
 .slide {

@@ -2,6 +2,9 @@
     @if $breakpoint == phone {
         @media (max-width: 42.5em) { @content }; // 42.5em = 680px
     }
+    @if $breakpoint == phone-large-height {
+        @media (max-width: 42.5em) and ( min-height: 32.5em) { @content };
+    }
     @if $breakpoint == phone-landscape {
         @media only screen and (min-device-width: 37.5rem) 
             and (max-device-width: 66.7rem) 

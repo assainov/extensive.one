@@ -22,10 +22,6 @@ interface IOwnProps {
 }
 
 class Hero extends React.Component<IOwnProps & IDispatchProps> {
-  state = {
-    heroHeight: null,
-  };
-
   settings = {
     dots: true,
     infinite: true,
@@ -39,33 +35,17 @@ class Hero extends React.Component<IOwnProps & IDispatchProps> {
 
   addToReadingList = (article: IArticle): void => saveToReadingList.call(this, article);
 
-  componentDidMount(): void {
-    const clientHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-
-    if (clientHeight < 520) {
-      return this.setState({ heroHeight: clientHeight });
-    } else {
-      return this.setState({ heroHeight: 620 });
-    }
-  }
-
   render(): JSX.Element {
     const maxTitleChars = isMobileSSR ? 50 : 70;
     const { articles } = this.props;
 
     return (
-      <div
-        className={styles.hero}
-        style={isMobileSSR ? { height: `calc(${this.state.heroHeight}px - var(--header-height))` } : {}}
-      >
+      <div className={styles.hero}>
         <Slider {...this.settings}>
           {articles.map(({ title, abstract, link, author, categories, date }) => (
             <div key={title}>
               <div className="container">
-                <article
-                  className={styles.slide}
-                  style={isMobileSSR ? { height: `calc(${this.state.heroHeight}px - var(--header-height))` } : {}}
-                >
+                <article className={styles.slide}>
                   <h2 className={styles.title}>{truncate(title, maxTitleChars, true)}</h2>
                   <small>
                     By {author} / {date} / In <CategoryLinks categories={categories}></CategoryLinks>
