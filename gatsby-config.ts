@@ -7,6 +7,8 @@ dotenv.config({
   path: `.env`,
 });
 
+console.log('ga', process.env.GATSBY_GA_TRACKING_CODE);
+
 export default {
   siteMetadata: {
     title: siteTitle,
@@ -14,6 +16,13 @@ export default {
     siteUrl,
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: process.env.GATSBY_GA_TRACKING_CODE,
+        head: true,
+      },
+    },
     'gatsby-plugin-sass',
     'gatsby-plugin-dark-mode',
     {
@@ -69,12 +78,6 @@ export default {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: process.env.GATSBY_GA_TRACKING_CODE,
-      },
-    },
     `gatsby-plugin-feed`,
     {
       resolve: `gatsby-plugin-manifest`,
