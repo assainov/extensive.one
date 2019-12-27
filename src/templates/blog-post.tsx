@@ -55,7 +55,7 @@ class BlogPostTemplate extends React.Component<
             <footer>
               <h2>Comments</h2>
               <a href={feedbackUrl} target="_blank" rel="noopener noreferrer">
-                Ask a question or submit feedback on GitHub.
+                Ask a question or submit feedback on GitHub
               </a>
               <div>
                 <a href={discussUrl} target="_blank" rel="noopener noreferrer">
