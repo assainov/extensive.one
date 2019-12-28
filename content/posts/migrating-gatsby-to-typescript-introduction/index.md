@@ -83,9 +83,9 @@ I also had other questions for the migration:
 
 With all the questions above, I decided to tackle them one by one, and to share the highlights in the upcoming series Migrating Gatsby to TypeScript:
 
-- [Part 1: Setting up Gatsby project with TypeScript](https://www.extensive.one/setting-up-gatsby-project-with-typescript)
-- [Part 2: Converting Gatsby Config and Node Modules to TypeScript](https://www.extensive.one/converting-gatsby-config-and-node-api-to-typescript)
-- [Part 3: Migrating Gatsby Pages to TypeScript](https://www.extensive.one/migrating-gatsby-pages-to-typescript)
+- [Part 1: Setting up Gatsby project with TypeScript](/setting-up-gatsby-project-with-typescript)
+- [Part 2: Converting Gatsby Config and Node Modules to TypeScript](/converting-gatsby-config-and-node-api-to-typescript)
+- [Part 3: Migrating Gatsby Pages to TypeScript](/migrating-gatsby-pages-to-typescript)
 - Part 4: Testing Gatsby + TypeScript Project with Jest & Cypress
 - Part 5: Centralized Error Handling with Gatsby and TypeScript
 - Part 6: Dynamic CMS Page Generation with Gatsby and TypeScript
@@ -97,4 +97,4 @@ In this introductory article, you saw why TypeScript is a necessary choice when 
 
 I hope you are stocked for the series, and if so, consider subscribing!
 
-Next part: [Setting up Gatsby project with TypeScript](https://www.extensive.one/setting-up-gatsby-project-with-typescript)
+Next part: [Setting up Gatsby project with TypeScript](/setting-up-gatsby-project-with-typescript)

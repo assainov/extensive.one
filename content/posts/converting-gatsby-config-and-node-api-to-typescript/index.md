@@ -7,7 +7,7 @@ featured: true
 ---
 
 
-Welcome to the third part of the series [Migrating Gatsby to TypeScript!](https://www.extensive.one/migrating-gatsby-to-typescript-introduction/)
+Welcome to the third part of the series [Migrating Gatsby to TypeScript!](/migrating-gatsby-to-typescript-introduction/)
 
 In the last part we saw how to setup a Gatsby project with TypeScript. In this part, we will examine multiple ways how to write `gatsby-config` and `gatsby-node` modules in TypeScript.
 

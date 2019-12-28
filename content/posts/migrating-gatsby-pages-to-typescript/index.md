@@ -6,7 +6,7 @@ categories: ["Gatsby", "TypeScript"]
 featured: true
 ---
 
-In the previous part, we successfully [converted Gatsby API modules to TypeScript](https://www.extensive.one/converting-gatsby-config-and-node-api-to-typescript/).
+In the previous part, we successfully [converted Gatsby API modules to TypeScript](/converting-gatsby-config-and-node-api-to-typescript/).
 
 In the post, we will finally dive into migrating pages. This example is universal for any Gatsby page, template or a child component, so for the theory we will only focus on the home page.
 
@@ -190,7 +190,7 @@ const siteTitle = DeepPropertyAccess.get(data, 'site', 'siteMetadata', 'title') 
 ...
 ```
 
-You can now safely use `siteTitle` in your React component without having to worry about runtime errors. The `DeepPropertyAccess.get()` method provides type inference and intellisense support for the object `data`. To learn more about different ways to accomplish the same, check out this 5-min read: [Accessing Deep Properties in TypeScript](https://www.extensive.one/accessing-deep-properties-in-typescript).
+You can now safely use `siteTitle` in your React component without having to worry about runtime errors. The `DeepPropertyAccess.get()` method provides type inference and intellisense support for the object `data`. To learn more about different ways to accomplish the same, check out this 5-min read: [Accessing Deep Properties in TypeScript](/accessing-deep-properties-in-typescript).
 
 ## Reducing typescript boilerplate code
 Now that our code is compiling, we can look into the problem with reduntant interfaces for graphql query result. Remember? When we define an interface for a graphql query result, we write something like this...

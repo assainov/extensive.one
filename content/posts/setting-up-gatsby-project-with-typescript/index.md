@@ -6,7 +6,7 @@ categories: ["Gatsby", "TypeScript", "Development  Tools"]
 ---
 
 
-This is the first part of the series: [Migrating Gatsby to TypeScript](https://www.extensive.one/migrating-gatsby-to-typescript-introduction). 
+This is the first part of the series: [Migrating Gatsby to TypeScript](/migrating-gatsby-to-typescript-introduction). 
 
 In this post, we will setup the project with ESLint + Prettier, TypeScript, type definitions, SASS and other good stuff.
 
