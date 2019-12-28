@@ -19,12 +19,14 @@
     }
 
     @include respond(phone) {
-        margin-left: -10%;
-        margin-right: -10%;
+        margin-left: -1.6rem;
+        margin-right: -1.6rem;
         padding: 4rem 10%;
         flex-wrap: nowrap;
         flex-direction: column;
         box-shadow: none;
+        border-left: none;
+        border-right: none;
 
         h2 {
             font-size: 2rem;

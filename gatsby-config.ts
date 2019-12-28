@@ -7,8 +7,6 @@ dotenv.config({
   path: `.env`,
 });
 
-console.log('ga', process.env.GATSBY_GA_TRACKING_CODE);
-
 export default {
   siteMetadata: {
     title: siteTitle,
