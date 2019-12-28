@@ -190,7 +190,7 @@ const siteTitle = DeepPropertyAccess.get(data, 'site', 'siteMetadata', 'title') 
 ...
 ```
 
-You can now safely use `siteTitle` in your React component without having to worry about runtime errors.
+You can now safely use `siteTitle` in your React component without having to worry about runtime errors. The `DeepPropertyAccess.get()` method provides type inference and intellisense support for the object `data`. To learn more about different ways to accomplish the same, check out this 5-min read: [Accessing Deep Properties in TypeScript](https://www.extensive.one/accessing-deep-properties-in-typescript).
 
 ## Reducing typescript boilerplate code
 Now that our code is compiling, we can look into the problem with reduntant interfaces for graphql query result. Remember? When we define an interface for a graphql query result, we write something like this...
