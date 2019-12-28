@@ -1,7 +1,7 @@
 ---
 title: "Part 3: Migrating Gatsby Pages to TypeScript"
 date: "2019-12-28T00:45:03.284Z"
-abstract: My reflections on migrating Gatsby to TypeScript. Why and when one must consider migrating. Where to look for resources.
+abstract: Write robust Gatsby pages and components in TypeScript with no boilerplate code.
 categories: ["Gatsby", "TypeScript"]
 featured: true
 ---
