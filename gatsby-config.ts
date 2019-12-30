@@ -1,7 +1,14 @@
 import { config } from './content/website/config';
 import dotenv from 'dotenv';
 
-const { siteTitle, siteDescription, siteUrl, siteColors, siteIcons } = config;
+const {
+  siteTitle,
+  siteDescription,
+  siteUrl,
+  siteColors,
+  siteIcons,
+  heapAnalyticsId,
+} = config;
 
 dotenv.config({
   path: `.env`,
@@ -15,10 +22,10 @@ export default {
   },
   plugins: [
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: 'gatsby-plugin-heap',
       options: {
-        trackingId: process.env.GATSBY_GA_TRACKING_CODE,
-        head: true,
+        appId: heapAnalyticsId,
+        enableOnDevMode: true, // if 'false', heap will be fired on NODE_ENV=production only
       },
     },
     'gatsby-plugin-sass',

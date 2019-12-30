@@ -27,4 +27,5 @@ export const config = {
     name: 'google-site-verification',
     content: 'pfWWlw0JqdyBkxJa-GoWYVA5_P5r547EAV0OQYnN420',
   },
+  heapAnalyticsId: '1037990187',
 };
