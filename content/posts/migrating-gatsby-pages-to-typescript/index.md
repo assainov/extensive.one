@@ -258,7 +258,6 @@ And observe the magic:
 
 The plugin has automatically generated interfaces for all graphql queries, and put them in the same directory as a component in the __generated__ folder:
 
-In HomePageQuery.d.ts:
 <div class="filename">HomePageQuery.d.ts</div>
 
 ```typescript
@@ -276,6 +275,22 @@ export interface HomePageQuery_site {
 ```
 
 And that's all to it. Simple, yet powerful!
+
+_Note: If \__generated\__ folder was not generated, try to save any of the files having GraphQL queries._
+
+_Note: If you have an error as below, make sure you name all of your queries._
+
+<div class="filename">terminal</div>
+
+```bash
+Change detected, generating types...
+error file /Users/ilyas/Desktop/TypeScript/extensive.one/src/pages/index.tsx
+
+ ERROR 
+
+Error while generating types: Apollo does not support anonymous operations
+```
+
 
 The plugin will also generate `schema.json` and `apollo.config.js` configuration files in the root of the project. You can learn more and tweak many plugin options available on the [plugin's page](https://www.gatsbyjs.org/packages/gatsby-plugin-codegen/).
 
