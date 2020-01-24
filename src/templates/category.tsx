@@ -28,7 +28,11 @@ interface ITemplateProps {
   };
 }
 
-const Categories: React.FC<ITemplateProps & IQueryProps & IPageProps> = ({ pageContext, data, location }) => {
+const Categories: React.FC<ITemplateProps & IQueryProps & IPageProps> = ({
+  pageContext,
+  data,
+  location,
+}) => {
   const { category } = pageContext;
   const { totalCount } = data.allMarkdownRemark;
 
@@ -43,10 +47,15 @@ const Categories: React.FC<ITemplateProps & IQueryProps & IPageProps> = ({ pageC
 
   return (
     <Layout location={location}>
-      <SEO title={`${category} Category | ${siteTitle}`} description={`All posts in ${category} Category`} />
+      <SEO
+        title={`${category} Category | ${siteTitle}`}
+        description={`All posts in ${category} Category`}
+      />
       <Canvas>
         <AllPosts
-          heading={`Category &#8231; ${category} &#8231; ${totalCount} Article${totalCount > 1 ? 's' : ''}`}
+          heading={`Category &#8231; ${category} &#8231; ${totalCount} Article${
+            totalCount > 1 ? 's' : ''
+          }`}
           articles={articles}
         />
       </Canvas>
@@ -57,7 +66,7 @@ const Categories: React.FC<ITemplateProps & IQueryProps & IPageProps> = ({ pageC
 export default Categories;
 
 export const pageQuery = graphql`
-  query($category: String) {
+  query CategoryData($category: String) {
     allMarkdownRemark(
       limit: 2000
       sort: { fields: [frontmatter___date], order: DESC }

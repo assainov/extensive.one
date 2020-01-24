@@ -9,51 +9,41 @@ import SEO from '../components/seo';
 import Hero from '../components/hero';
 import Canvas from '../components/canvas';
 import AllPosts from '../components/all-posts';
+import { HomePageData } from './__generated__/HomePageData';
+import notEmpty from '../utils/not-empty';
 
-export interface IFrontMatter {
-  date: string;
-  title: string;
-  abstract: string;
-  categories: string[];
-  featured: boolean;
-}
-
-export interface IArticle extends IFrontMatter {
-  link: string;
-  author: string;
-}
-
-export interface INode {
-  fields: {
-    slug: string;
-  };
-  frontmatter: IFrontMatter;
-}
+const log = console.log;
 
 interface IQueryProps {
-  data: {
-    site: {
-      siteMetadata: {
-        title: string;
-        author: string;
-      };
-    };
-    allMarkdownRemark: {
-      edges: { node: INode }[];
-    };
-  };
+  data: HomePageData;
 }
 
 const HomePage: React.FC<IQueryProps & IPageProps> = ({ data, location }) => {
-  const articles: IArticle[] = data.allMarkdownRemark.edges.map(({ node }) => ({
-    title: node.frontmatter.title,
-    date: node.frontmatter.date,
-    abstract: node.frontmatter.abstract,
-    categories: node.frontmatter.categories,
-    link: node.fields.slug,
-    author: config.author,
-    featured: node.frontmatter.featured,
-  }));
+  const articles = data.allMarkdownRemark.edges
+    .map(({ node }) => {
+      const title = node.frontmatter?.title;
+      const date = node.frontmatter?.date;
+      const abstract = node.frontmatter?.abstract;
+      const categories = node.frontmatter?.categories;
+      const link = node.fields?.slug;
+      const featured = node.frontmatter?.featured || false;
+
+      if (!title || !date || !abstract || !categories || !link) {
+        log('Error retrieving article data', node);
+        return;
+      }
+
+      return {
+        title: title,
+        date: date,
+        abstract: abstract,
+        categories: categories,
+        link: link,
+        author: config.author,
+        featured: featured,
+      };
+    })
+    .filter(notEmpty);
 
   const featuredArticles = articles.filter(article => article.featured);
 
@@ -71,7 +61,7 @@ const HomePage: React.FC<IQueryProps & IPageProps> = ({ data, location }) => {
 export default HomePage;
 
 export const pageQuery = graphql`
-  query MarkdownData {
+  query HomePageData {
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {

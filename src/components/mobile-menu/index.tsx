@@ -12,7 +12,7 @@ import { isMobileSSR } from '../../utils/device-detect';
 
 const MobileMenu: React.FC<IProps> = ({ menuOpen, toggleMenu }) => {
   const data = useStaticQuery<IQuery>(graphql`
-    query {
+    query MobileMenuData {
       allMarkdownRemark(limit: 2000) {
         group(field: frontmatter___categories) {
           fieldValue
@@ -64,7 +64,10 @@ const MobileMenu: React.FC<IProps> = ({ menuOpen, toggleMenu }) => {
   };
 
   return (
-    <div className={styles.onCanvas} style={{ pointerEvents: menuOpen ? 'initial' : 'none' }}>
+    <div
+      className={styles.onCanvas}
+      style={{ pointerEvents: menuOpen ? 'initial' : 'none' }}
+    >
       {menuOpen && (
         <Helmet>
           <style type="text/css">
@@ -76,20 +79,34 @@ const MobileMenu: React.FC<IProps> = ({ menuOpen, toggleMenu }) => {
           </style>
         </Helmet>
       )}
-      <div className={styles.mobileMenu} style={{ transform: menuOpen ? `translateX(0)` : `translateX(100%)` }}>
+      <div
+        className={styles.mobileMenu}
+        style={{ transform: menuOpen ? `translateX(0)` : `translateX(100%)` }}
+      >
         <div className="container">
           <nav>
             <ul>
               {menuItems.map(({ title, url, children, external }, index) => {
                 return (
-                  <li key={title} className={styles.topItem} onClick={(): void => handleSubmenuItemClick(index)}>
+                  <li
+                    key={title}
+                    className={styles.topItem}
+                    onClick={(): void => handleSubmenuItemClick(index)}
+                  >
                     {url ? (
-                      <span onClick={(): void => navigateTo(url, external)} className={styles.topLink}>
+                      <span
+                        onClick={(): void => navigateTo(url, external)}
+                        className={styles.topLink}
+                      >
                         {title}
                         {children && (
                           <span
                             className={styles.arrowIcon}
-                            style={{ transform: `rotate(${index === activeIndex ? 180 : 0}deg)` }}
+                            style={{
+                              transform: `rotate(${
+                                index === activeIndex ? 180 : 0
+                              }deg)`,
+                            }}
                           />
                         )}
                       </span>
@@ -99,7 +116,11 @@ const MobileMenu: React.FC<IProps> = ({ menuOpen, toggleMenu }) => {
                         {children && (
                           <span
                             className={styles.arrowIcon}
-                            style={{ transform: `rotate(${index === activeIndex ? 180 : 0}deg)` }}
+                            style={{
+                              transform: `rotate(${
+                                index === activeIndex ? 180 : 0
+                              }deg)`,
+                            }}
                           />
                         )}
                       </span>
@@ -108,7 +129,10 @@ const MobileMenu: React.FC<IProps> = ({ menuOpen, toggleMenu }) => {
                       <ul
                         className={styles.dropdownList}
                         style={{
-                          height: index === activeIndex ? `${children.length * 3}em` : '0',
+                          height:
+                            index === activeIndex
+                              ? `${children.length * 3}em`
+                              : '0',
                         }}
                       >
                         {children.map(({ title, url }) => (

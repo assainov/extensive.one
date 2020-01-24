@@ -5,47 +5,44 @@ import kebabCase from 'lodash/kebabCase';
 import SEO from './../components/seo';
 import { IPageProps } from '../typings/page-props';
 import Layout from '../components/layout';
-
-interface ICategory {
-  fieldValue: string;
-  totalCount: number;
-}
+import { CategoriesPageData } from './__generated__/CategoriesPageData';
 
 interface IQueryProps {
-  data: {
-    allMarkdownRemark: {
-      group: ICategory[];
-    };
-  };
+  data: CategoriesPageData;
 }
 
 const CategoriesPage: React.FC<IQueryProps & IPageProps> = ({
-  data: {
-    allMarkdownRemark: { group: categories },
-  },
+  data,
   location,
-}) => (
-  <Layout location={location}>
-    <SEO title={`Categories`} />
-    <div>
-      <h1>Categories</h1>
-      <ul>
-        {categories.map(category => (
-          <li key={category.fieldValue}>
-            <Link to={`/categories/${kebabCase(category.fieldValue)}/`}>
-              {category.fieldValue} ({category.totalCount})
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </Layout>
-);
+}) => {
+  const categories = data?.allMarkdownRemark?.group;
+
+  return (
+    <Layout location={location}>
+      <SEO title={`Categories`} />
+      <div>
+        <h1>Categories</h1>
+        <ul>
+          {categories.map(category => {
+            const categoryTitle = category.fieldValue || 'No category';
+            return (
+              <li key={categoryTitle}>
+                <Link to={`/categories/${kebabCase(categoryTitle)}/`}>
+                  {categoryTitle} ({category.totalCount})
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </Layout>
+  );
+};
 
 export default CategoriesPage;
 
 export const pageQuery = graphql`
-  query {
+  query CategoriesPageData {
     allMarkdownRemark(limit: 2000) {
       group(field: frontmatter___categories) {
         fieldValue

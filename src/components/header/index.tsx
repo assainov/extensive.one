@@ -15,10 +15,19 @@ export const ChangeTheme = (
   </li>
 );
 
-export const PureHeader: React.FC<IPureHeaderProps> = ({ title, categories, menuOpen, toggleMenu, location }) => (
+export const PureHeader: React.FC<IPureHeaderProps> = ({
+  title,
+  categories,
+  menuOpen,
+  toggleMenu,
+  location,
+}) => (
   <header
     className={styles.header}
-    style={{ marginBottom: !isMobileSSR && location && location.pathname !== '/' ? '10rem' : '0' }}
+    style={{
+      marginBottom:
+        !isMobileSSR && location && location.pathname !== '/' ? '10rem' : '0',
+    }}
   >
     <div className="container">
       <div className={styles.logo}>
@@ -36,7 +45,9 @@ export const PureHeader: React.FC<IPureHeaderProps> = ({ title, categories, menu
             <ul className={styles.dropdownList}>
               {categories.map(category => (
                 <li key={category.fieldValue}>
-                  <Link to={`/categories/${kebabCase(category.fieldValue)}/`}>{category.fieldValue}</Link>
+                  <Link to={`/categories/${kebabCase(category.fieldValue)}/`}>
+                    {category.fieldValue}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -47,14 +58,20 @@ export const PureHeader: React.FC<IPureHeaderProps> = ({ title, categories, menu
             </Link>
           </li>
           <li className={styles.topItem}>
-            <a className={styles.topLink} href="mailto:iliyas.assainov@gmail.com">
+            <a
+              className={styles.topLink}
+              href="mailto:iliyas.assainov@gmail.com"
+            >
               Get In Touch
             </a>
           </li>
           {ChangeTheme}
         </ul>
       </nav>
-      <div className={`${styles.menuButton} ${menuOpen ? styles.open : ''}`} onClick={toggleMenu}>
+      <div
+        className={`${styles.menuButton} ${menuOpen ? styles.open : ''}`}
+        onClick={toggleMenu}
+      >
         <span />
       </div>
     </div>
@@ -63,7 +80,7 @@ export const PureHeader: React.FC<IPureHeaderProps> = ({ title, categories, menu
 
 const Header: React.FC<IHeaderProps> = ({ menuOpen, toggleMenu, location }) => {
   const data = useStaticQuery<IQuery>(graphql`
-    query {
+    query HeaderData {
       site {
         siteMetadata {
           title
@@ -82,7 +99,13 @@ const Header: React.FC<IHeaderProps> = ({ menuOpen, toggleMenu, location }) => {
   const { group: categories } = data.allMarkdownRemark;
 
   return (
-    <PureHeader menuOpen={menuOpen} toggleMenu={toggleMenu} title={title} categories={categories} location={location} />
+    <PureHeader
+      menuOpen={menuOpen}
+      toggleMenu={toggleMenu}
+      title={title}
+      categories={categories}
+      location={location}
+    />
   );
 };
 

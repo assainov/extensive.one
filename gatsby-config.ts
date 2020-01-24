@@ -101,6 +101,10 @@ export default {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-typescript`,
     {
+      resolve: 'gatsby-plugin-codegen',
+      options: {},
+    },
+    {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
         policy: [{ userAgent: '*', allow: '/', disallow: '/reading-list/' }],
