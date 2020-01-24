@@ -1,32 +1,38 @@
 import { GatsbyNode } from 'gatsby';
 import * as path from 'path';
 import kebabCase from 'lodash/kebabCase';
+import chalk from 'chalk';
+
+const log = console.log;
 
 interface ICategory {
-  fieldValue: string;
+  fieldValue?: string;
 }
 
 export interface INode {
-  fields: {
-    slug: string;
+  fields?: {
+    slug?: string;
   };
-  frontmatter: {
-    title: string;
+  frontmatter?: {
+    title?: string;
   };
 }
 
 interface IQueryResult {
-  allMarkdownRemark: {
-    edges: {
-      node: INode;
+  allMarkdownRemark?: {
+    edges?: {
+      node?: INode;
     }[];
   };
   categoriesGroup: {
-    group: ICategory[];
+    group?: ICategory[];
   };
 }
 
-export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions }) => {
+export const createPages: GatsbyNode['createPages'] = async ({
+  graphql,
+  actions,
+}) => {
   const { createPage } = actions;
 
   const blogPost = path.resolve(`./src/templates/blog-post.tsx`);
@@ -35,7 +41,10 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
   const queryResult = await graphql<IQueryResult>(
     `
       query PagesCategoriesQuery {
-        allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }, limit: 1000) {
+        allMarkdownRemark(
+          sort: { fields: [frontmatter___date], order: DESC }
+          limit: 1000
+        ) {
           edges {
             node {
               fields {
@@ -65,17 +74,23 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
   }
 
   // Create blog posts pages.
-  const posts = queryResult.data.allMarkdownRemark.edges;
+  const posts = queryResult?.data?.allMarkdownRemark?.edges || [];
 
   posts.forEach((post, index) => {
     const previous = index === posts.length - 1 ? null : posts[index + 1].node;
     const next = index === 0 ? null : posts[index - 1].node;
 
+    const pagePath = post?.node?.fields?.slug;
+
+    if (!pagePath) {
+      return log(chalk.yellow(`Warning: Blog post has no path. Skipping...`));
+    }
+
     createPage({
-      path: post.node.fields.slug,
+      path: pagePath,
       component: blogPost,
       context: {
-        slug: post.node.fields.slug,
+        slug: pagePath,
         previous,
         next,
       },
@@ -83,7 +98,15 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
   });
 
   // Extract category data from query
-  const categories = queryResult.data.categoriesGroup.group;
+  const categories = queryResult.data.categoriesGroup?.group || [];
+
+  if (categories.length === 0) {
+    return log(
+      chalk.yellow(
+        `Warning: No categories were found in the blog. Skipping creating category pages.`,
+      ),
+    );
+  }
 
   // Make category pages
   categories.forEach(category => {
