@@ -86,7 +86,7 @@ The next candidate is a type-safe [Deep Property Access](https://codewithstyle.i
 
 This is the second best implementation I found after TypeScript Optional Chaining because it comes with type-checking and intellisense support.
 
-As such, I use it in all the projects.
+As such, if you frequently have new people in the team, it might better to use this option due to backwards editor compatibility.
 
 ![Deep Property Access Intellisense Support](./deep-property-access-typescript.png)
 
