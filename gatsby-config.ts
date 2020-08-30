@@ -31,18 +31,9 @@ export default {
     'gatsby-plugin-sass',
     'gatsby-plugin-dark-mode',
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [
-          {
-            family: `Josefin Sans`,
-            variants: [`400`, `600`],
-          },
-          {
-            family: `Domine`,
-            variants: [`400`],
-          },
-        ],
+        fonts: [`Josefin Sans\:400,600`, `Domine\:400`],
       },
     },
     {
