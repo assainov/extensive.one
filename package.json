@@ -34,7 +34,7 @@
     "gatsby-transformer-remark": "^2.6.39",
     "gatsby-transformer-sharp": "^2.3.7",
     "google-fonts-plugin": "2.0.2",
-    "node-sass": "^4.12.0",
+    "node-sass": "^7.0.0",
     "prismjs": "^1.17.1",
     "react": "^16.12.0",
     "react-device-detect": "^1.11.14",
